@@ -15,9 +15,9 @@ export const Header = () => {
   return (
     <div className="">
       {/* Dark NavBar */}
-      <div className="flex flex-row flex-wrap justify-between items-center w-full bg-[#252B42] min-h-[58px]">
+      <div className="flex flex-row flex-wrap justify-between items-center max-w-full bg-[#252B42] min-h-[58px] px-[1.5em]">
         <div className="flex items-center gap-[1.5rem]">
-          <div className="inline-flex px-[1.5em] items-center gap-[0.25rem]">
+          <div className="inline-flex  items-center gap-[0.25rem]">
             <FaPhoneAlt className="text-white size-4 " />
             <span className="text-white font-bold	text-sm	">(225) 555-0118</span>
           </div>
@@ -42,12 +42,12 @@ export const Header = () => {
         </div>
       </div>
       {/*Navbar Light */}
-      <div className="flex justify-between w-[95%] items-center mx-auto">
-        <nav className="inline-flex items-center gap-[2rem]">
-          <div className="p-4 ">
+      <div className="flex justify-between max-w-screen items-center px-[1.5em]">
+        <nav className="inline-flex items-center gap-[2rem] ">
+          <div className="py-4 ">
             <h3 className="text-2xl font-bold">Bandage</h3>
           </div>
-          <div className="flex gap-[1rem] font-bold text-[#737373] text-sm">
+          <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20">
             <span>Home</span>
             <span>Shop</span>
             <span>About</span>
