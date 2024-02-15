@@ -10,6 +10,7 @@ export default {
         "light-blue": "#96E9FB",
         "primary-gray": "#737373",
         pBlue: "#23A6F0",
+        pbGray: "#FAFAFA",
       },
     },
     screens: {
