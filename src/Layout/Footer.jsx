@@ -27,13 +27,10 @@ export const Footer = () => {
         <hr />
         {/* Second Div (Contains Links) */}
         {/* Bu kısımdaki fixed widthi sil, justify-between niye çalışmıyor? */}
-        <div className="flex pt-4 pb-12">
-          <div className="flex md:flex-wrap mt-8">
+        <div className=" pt-4 pb-12">
+          <div className="flex md:flex-wrap mt-8 justify-between">
             {footerData.footerSections.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-4 w-[175px] md:w-full "
-              >
+              <div key={index} className="flex flex-col gap-4  md:w-full ">
                 <h5 className="font-bold text-base w-full">{item.title}</h5>
                 <ul className="w-full ">
                   {item.links.map((link, linkIndex) => (
@@ -50,7 +47,7 @@ export const Footer = () => {
               </div>
             ))}
             {/* Bu kısımdaki fixed widthi sil! */}
-            <div className="flex flex-col gap-4 w-[350px] md:w-full ">
+            <div className="flex flex-col gap-4 md:w-full ">
               <h5 className="font-bold text-base">{footerData.inputTitle}</h5>
               <form className="flex ">
                 <input

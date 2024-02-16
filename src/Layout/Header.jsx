@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -52,12 +53,12 @@ export const Header = () => {
             <h3 className="text-2xl font-bold">Bandage</h3>
           </div>
           <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col">
-            <span>Home</span>
-            <span>Shop</span>
-            <span>About</span>
-            <span>Blog</span>
-            <span>Contact</span>
-            <span>Pages</span>
+            <Link to={"/"}>Home</Link>
+            <Link>Shop</Link>
+            <Link>About</Link>
+            <Link>Blog</Link>
+            <Link>Contact</Link>
+            <Link>Pages</Link>
           </div>
         </nav>
         <div className="inline-flex justify-end items-center text-[#23A6F0] gap-6">

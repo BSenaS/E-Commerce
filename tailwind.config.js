@@ -11,6 +11,10 @@ export default {
         "primary-gray": "#737373",
         pBlue: "#23A6F0",
         pbGray: "#FAFAFA",
+        "mute-color": "#BDBDBD",
+        sGreen: "#23856D",
+        bGreen: "#2DC071",
+        sBlack: "#252B42",
       },
     },
     screens: {
