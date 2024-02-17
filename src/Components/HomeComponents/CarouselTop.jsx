@@ -74,7 +74,7 @@ export const CarouselTop = () => {
                     className={
                       currentIndex === index
                         ? "bg-white w-[62px] h-[10px] "
-                        : "w-[62px] h-[10px] bg-white opacity-[60%] "
+                        : "w-[62px] h-[10px] bg-white opacity-[60%] cursor-pointer"
                     }
                     onClick={() => goToSlide(index)}
                   />

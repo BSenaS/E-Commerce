@@ -1,4 +1,4 @@
-//CategoryCard imgleri
+//Editors Pick imgleri
 import ctCard1 from "./assets/ctCard1.jpg";
 import ctCard2 from "./assets/ctCard2.jpg";
 import ctCard3 from "./assets/ctCard3.jpg";
@@ -18,6 +18,13 @@ import bsi8 from "./assets/BestSellerList/bsi8.jpg";
 import feature1 from "./assets/HomeAssets/featureImg1.jpg";
 import feature2 from "./assets/HomeAssets/featureImg2.jpg";
 import feature3 from "./assets/HomeAssets/featureImg3.jpg";
+
+//Category Card Imgleri
+import cc1 from "./assets/CategoryCard/cc1.jpg";
+import cc2 from "./assets/CategoryCard/cc2.jpg";
+import cc3 from "./assets/CategoryCard/cc3.jpg";
+import cc4 from "./assets/CategoryCard/cc4.jpg";
+import cc5 from "./assets/CategoryCard/cc5.jpg";
 
 export const footerData = {
   brandName: "Bandage",
@@ -50,7 +57,7 @@ export const footerData = {
   ],
 };
 
-export const categoryData = {
+export const editorsPickData = {
   men: {
     categoryName: "MEN",
     imageUrl: ctCard1,
@@ -174,6 +181,123 @@ export const featurePostData = {
       google: "Google",
       trending: "Trending",
       new: "New",
+    },
+  ],
+};
+
+export const categoryData = [
+  {
+    categoryName: "CLOTHS",
+    itemCount: 5,
+    imageUrl: cc1,
+  },
+  {
+    categoryName: "CLOTHS",
+    itemCount: 5,
+    imageUrl: cc2,
+  },
+  {
+    categoryName: "CLOTHS",
+    itemCount: 5,
+    imageUrl: cc3,
+  },
+  {
+    categoryName: "CLOTHS",
+    itemCount: 5,
+    imageUrl: cc4,
+  },
+  {
+    categoryName: "CLOTHS",
+    itemCount: 5,
+    imageUrl: cc5,
+  },
+];
+
+export const productListData = {
+  products: [
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi1,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi2,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi3,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi4,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi5,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi6,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi8,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi5,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi6,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bsi8,
     },
   ],
 };

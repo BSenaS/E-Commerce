@@ -54,7 +54,7 @@ export const Header = () => {
           </div>
           <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col">
             <Link to={"/"}>Home</Link>
-            <Link>Shop</Link>
+            <Link to={"/shop"}>Shop</Link>
             <Link>About</Link>
             <Link>Blog</Link>
             <Link>Contact</Link>
