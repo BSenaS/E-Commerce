@@ -26,6 +26,10 @@ import cc3 from "./assets/CategoryCard/cc3.jpg";
 import cc4 from "./assets/CategoryCard/cc4.jpg";
 import cc5 from "./assets/CategoryCard/cc5.jpg";
 
+//Product Page Kısmı importları
+import pCarousel1 from "./assets/ProductPage/pCarousel1.jpg";
+import pCarousel2 from "./assets/ProductPage/pCarousel2.jpeg";
+
 export const footerData = {
   brandName: "Bandage",
   copyright: "  Made With Love By Finland All Right Reserved",
@@ -300,4 +304,17 @@ export const productListData = {
       imageUrl: bsi8,
     },
   ],
+};
+
+//Product dataları bir backend apisinden geleceği için şimdiden bunları bu şekle uygun simüle ediyorum.
+export const productData = {
+  productName: "Floating Iphone",
+  reviewNumber: "10",
+  availability: "In Stock",
+  description:
+    "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie.Excitation venial consequent sent nostrum met.",
+  imageUrl: [pCarousel1, pCarousel2],
+  price: "$1,139.33",
+  detailPg:
+    "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
 };

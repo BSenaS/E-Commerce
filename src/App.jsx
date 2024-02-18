@@ -5,6 +5,7 @@ import { Header } from "./Layout/Header";
 import { HomePage } from "./Pages/HomePage";
 import { DataContextProvider } from "./context/DataContext";
 import ProductListPage from "./Layout/ProductListPage/ProductListPage";
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/shop" element={<ProductListPage />}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/product" element={<ProductPage />}></Route>
         </Routes>
         <Footer />
       </DataContextProvider>
