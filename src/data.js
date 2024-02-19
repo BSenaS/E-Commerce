@@ -30,6 +30,9 @@ import cc5 from "./assets/CategoryCard/cc5.jpg";
 import pCarousel1 from "./assets/ProductPage/pCarousel1.jpg";
 import pCarousel2 from "./assets/ProductPage/pCarousel2.jpeg";
 
+//teamcard img
+import teamImg from "./assets/team/teamcardimg.jpg";
+
 export const footerData = {
   brandName: "Bandage",
   copyright: "  Made With Love By Finland All Right Reserved",
@@ -317,4 +320,12 @@ export const productData = {
   price: "$1,139.33",
   detailPg:
     "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
+};
+
+export const aboutTeam = {
+  members: [
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+  ],
 };
