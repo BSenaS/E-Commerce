@@ -10,7 +10,7 @@ import {
 
 const Clients = () => {
   return (
-    <div className="w-full bg-pbGray mb-12">
+    <div className="w-full bg-pbGray py-12">
       <div className="text-primary-gray flex flex-row max-w-[1050px] justify-between mx-auto">
         <span>
           <FaHooli size={100} />
