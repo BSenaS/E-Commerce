@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const TeamCard = ({ data, index }) => {
   return (
-    <div className="flex flex-col gap-4 tracking-[0.2px]">
+    <div className="flex flex-col gap-4 tracking-[0.2px] min-h-[315px] ">
       <img src={data.imageURL} alt={index} />
       <div className="flex flex-col items-center gap-4 font-bold">
         <p className="text-sBlack">{data.name}</p>

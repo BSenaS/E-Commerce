@@ -329,3 +329,17 @@ export const aboutTeam = {
     { name: "Username", job: "Profession", imageURL: teamImg },
   ],
 };
+
+export const teamData = {
+  members: [
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+    { name: "Username", job: "Profession", imageURL: teamImg },
+  ],
+};
