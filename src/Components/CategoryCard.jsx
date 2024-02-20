@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const CategoryCard = ({ data }) => {
   return (
-    <div className="max-w-[200px]">
+    <div className="max-w-[200px] md:w-[333px] md:mx-auto">
       {/* Linkler nereye gidecek? */}
       <Link>
         <div

@@ -24,10 +24,10 @@ const ProductPageCarousel = () => {
   };
 
   return (
-    <div>
-      <div className="w-[510px] h-[550px] flex flex-col relative md:flex-wrap gap-4 md:w-full">
+    <div className="w-full">
+      <div className="w-[510px] h-[550px] flex flex-col relative md:flex-wrap gap-4 md:w-[350px] md:h-full">
         {/* img */}
-        <div className="max-h-[450px] max-w-[510px] md:w-full">
+        <div className="max-h-[450px] max-w-[510px] md:w-full ">
           <img
             src={productData.imageUrl[imgIndex]}
             alt="asd"
@@ -48,16 +48,16 @@ const ProductPageCarousel = () => {
             onClick={() => goToSlide(1)}
           />
         </div>
-        <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer">
+        <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2  text-black cursor-pointer md:top-[30%]">
           <BsChevronCompactLeft
-            size={30}
+            size={50}
             onClick={prevSlide}
             className="text-white"
           />
         </div>
-        <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer">
+        <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2  text-black cursor-pointer md:top-[30%]">
           <BsChevronCompactRight
-            size={30}
+            size={50}
             onClick={nextSlide}
             className="text-white"
           />

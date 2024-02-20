@@ -6,7 +6,7 @@ const TeamCards = () => {
   const { teamData } = useData();
   return (
     <div className="flex flex-col items-center">
-      <h3 className="font-bold text-sBlack text-5xl mb-4 py-16 md:py-8 md:max-w-[310px] md:items-center">
+      <h3 className="font-bold text-sBlack text-5xl mb-4 py-16 md:py-8 md:max-w-[310px] md:items-center md:text-center">
         Meet Our Team
       </h3>
 
