@@ -68,7 +68,7 @@ export const Header = () => {
               <span>/</span>
               <span>Register</span>
             </div>
-            <div className="flex gap-4 flex-wrap md:w-full">
+            <div className="flex gap-4 flex-wrap md:w-full md:text-sBlack">
               <FaSearch className="size-5" />
               <MdOutlineShoppingCart className="size-5" />
               <FaRegHeart className="size-5 md:hidden" />

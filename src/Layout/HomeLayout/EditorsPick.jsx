@@ -6,64 +6,60 @@ export const EditorsPick = () => {
   const { editorsPickData } = useData();
   return (
     <div className="w-full">
-      <div className="flex flex-col max-w-[1050px] mx-auto gap-3 my-10">
-        <h3 className="m-auto font-bold text-2xl tracking-[0.1px]">
+      <div className="flex flex-col max-w-[1050px] mx-auto gap-3 my-10 md:w-full">
+        <h3 className="m-auto font-bold text-2xl tracking-[0.1px] ">
           EDITOR’S PICK
         </h3>
-        <p className="m-auto text-sm text-primary-gray tracking-[0.2px]">
+        <p className="flex m-auto text-sm text-primary-gray tracking-[0.2px] md:max-w-60 text-center">
           Problems trying to resolve the conflict between{" "}
         </p>
       </div>
       <div className="w-full bg-pbGray">
-        <div className="max-w-[1050px] flex flex-row m-auto flex-wrap">
-          <div
-            style={{
-              backgroundImage: `url(${editorsPickData.men.imageUrl})`,
-            }}
-            className="w-[500px] h-[500px] bg-no-repeat bg-cover cursor-pointer m-auto"
-          >
-            <Link to="/" className="inline-block w-[500px] h-[500px] ">
-              <div className="bg-white w-[170px] text-center py-3 px-16 font-bold flex  ml-4 mt-[85%] ">
-                MEN
-              </div>
-            </Link>
+        <div className="max-w-[1050px] flex flex-row m-auto flex-wrap md:w-[85%] md:gap-8">
+          {/* 1/2 Sol Erkek resmi */}
+          <div className="relative max-w-[510px] max-h-[500px] md:max-w-[85%] md:h-[500px] mx-auto">
+            <img
+              src={editorsPickData.men.imageUrl}
+              alt="menImg"
+              className="object-cover w-full h-full object-center"
+            />
+            <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black shadow-xl   hover:opacity-75 ">
+              MEN
+            </button>
           </div>
-          <div
-            style={{
-              backgroundImage: `url(${editorsPickData.women.imageUrl})`,
-            }}
-            className="w-[240px] h-[500px] bg-no-repeat bg-cover cursor-pointer m-auto"
-          >
-            <Link to="/" className="inline-block w-[500px] h-[500px]">
-              <button className="bg-white flex w-[140px] text-center py-3 font-bold ml-4 mt-[85%] ">
-                <span className="mx-auto">WOMEN</span>
+          {/* 1/4 Solo Kadın Resmi */}
+          <div className="relative max-w-[510px] w-[240px] max-h-[500px] md:w-[85%] md:h-[500px] mx-auto">
+            <img
+              src={editorsPickData.women.imageUrl}
+              alt="womenImg"
+              className="object-cover w-full h-full object-center"
+            />
+            <button className="absolute bottom-0 mb-4 ml-6 px-8 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75 ">
+              WOMEN
+            </button>
+          </div>
+          {/* 1/4 1/2, 2li resimler  */}
+          <div className="flex flex-col gap-3 m-auto md:w-full md:gap-8">
+            <div className="relative w-[240px] h-[242px] bg-no-repeat bg-cover cursor-pointer m-auto md:w-[85%]">
+              <img
+                src={editorsPickData.accessories.imageUrl}
+                alt="womenImg"
+                className="object-cover w-full h-full object-center"
+              />
+              <button className="absolute bottom-0 mb-4 ml-4 px-4 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75">
+                <span className="mx-auto">ACCESSORIES</span>
               </button>
-            </Link>
-          </div>
-          <div className="flex flex-col gap-3 m-auto">
-            <div
-              style={{
-                backgroundImage: `url(${editorsPickData.accessories.imageUrl})`,
-              }}
-              className="w-[240px] h-[242px] bg-no-repeat bg-cover cursor-pointer m-auto "
-            >
-              <Link>
-                <button className="bg-white flex w-[160px] text-center py-3 font-bold ml-4 mt-[70%] ">
-                  <span className="mx-auto">ACCESSORIES</span>
-                </button>
-              </Link>
             </div>
-            <div
-              style={{
-                backgroundImage: `url(${editorsPickData.kids.imageUrl})`,
-              }}
-              className="w-[240px] h-[242px] bg-no-repeat bg-cover cursor-pointer m-auto"
-            >
-              <Link>
-                <button className="bg-white flex w-[120px] text-center py-3 font-bold ml-4 mt-[70%] ">
-                  <span className="mx-auto">KIDS</span>
-                </button>
-              </Link>
+
+            <div className="relative w-[240px] h-[242px] bg-no-repeat bg-cover cursor-pointer m-auto md:w-[85%]">
+              <img
+                src={editorsPickData.kids.imageUrl}
+                alt="womenImg"
+                className="object-cover w-full h-full object-center"
+              />
+              <button className="absolute bottom-0 mb-4 ml-4 px-10 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75">
+                <span className="mx-auto">KIDS</span>
+              </button>
             </div>
           </div>
         </div>

@@ -48,16 +48,22 @@ export const CarouselTop = () => {
         <div
           style={{
             backgroundImage: `url(${slides[currentIndex].url})`,
+            backgroundPosition: "center", // Resmi dikey ve yatay olarak ortala
+            backgroundSize: "cover", // Resmi ekran boyutuna sığacak şekilde boyutlandır
+            backgroundRepeat: "no-repeat", // Resmin tekrarlanmasını engelle
           }}
           className="w-full h-full bg-cover bg-no-repeat duration-500 flex items-center justify-center"
         >
           {/* Div içerisindeki content kısmı */}
           <div className="flex max-w-[1044px] max-h-[680px] w-full h-full items-center ">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 md:items-center md:mx-auto">
               <h5 className="font-bold text-white ">Summer 2020</h5>
-              <h1 className="font-bold text-6xl text-white">NEW COLLECTION</h1>
-              <p className="text-white font-bold max-w-80">
-                We know how large objects will act, but things on a small scale.
+              <h1 className="flex font-bold text-6xl text-white md:max-w-80 md:text-[40px] md:flex-col md:text-center">
+                NEW COLLECTION
+              </h1>
+              <p className="flex flex-col text-white font-bold max-w-80 md:flex-col md:items-center">
+                <span> We know how large objects will act,</span>
+                but things on a small scale.
               </p>
               <div className="flex justify-start ">
                 <button className="text-white font-bold text-xl bg-[#2DC071] p-4 rounded-md">
@@ -66,7 +72,7 @@ export const CarouselTop = () => {
               </div>
             </div>
             {/* Slider DOTLARI */}
-            <div className="flex gap-1 absolute top-[95%] left-[50%]  translate-y-[-150%] justify-center ">
+            <div className="flex gap-1 absolute top-[95%] left-[50%] md:left-[34.5%] translate-y-[-150%] justify-center ">
               {slides.map((img, index) => {
                 return (
                   <div
@@ -81,11 +87,11 @@ export const CarouselTop = () => {
                 );
               })}
             </div>
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactLeft size={30} onClick={prevSlide} />
+            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2  text-white cursor-pointer md:left-0">
+              <BsChevronCompactLeft size={50} onClick={prevSlide} />
             </div>
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactRight size={30} onClick={nextSlide} />
+            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2  text-white cursor-pointer md:right-0">
+              <BsChevronCompactRight size={50} onClick={nextSlide} />
             </div>
           </div>
         </div>
