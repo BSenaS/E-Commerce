@@ -13,11 +13,11 @@ export const ProductDetails = () => {
       </div>
       <div className="flex flex-row max-w-[1050px] mx-auto flex-wrap justify-between">
         {/* Burası carousel ve product detail kısmı*/}
-        <div>
+        <div className="flex md:mx-auto">
           <ProductPageCarousel />
         </div>
         {/* Burası productın detail kısmı */}
-        <div className="flex flex-col flex-wrap w-[510px] h-[470px] justify-around">
+        <div className="flex flex-col flex-wrap w-[510px] h-[470px] justify-around md:w-[350px] md:mx-auto md:items-center md:my-8">
           <h5 className="text-xl font-bold">Floating Phone</h5>
           <div className="flex flex-row gap-1">
             <FaStar className="text-[#F3CD03]" size={23} />
@@ -42,13 +42,13 @@ export const ProductDetails = () => {
           </div>
           {/* Desct */}
           <div className="max-w-[450px]">
-            <p className="text-[#858585] text-sm ">
+            <p className="text-[#858585] text-sm md:text-center">
               Met minim Mollie non desert Alamo est sit cliquey dolor do met
               sent. RELIT official consequent door ENIM RELIT Mollie. Excitation
               venial consequent sent nostrum met.
             </p>
           </div>
-          <hr />
+          <hr className="border" />
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 bg-blue-500 rounded-full" />
             <div className="w-6 h-6 bg-teal-700 rounded-full" />

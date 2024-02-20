@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const ProductCard = ({ data, index }) => {
   return (
-    <Link className="flex flex-col w-60 h-[615px]">
+    <Link className="flex flex-col w-60 h-[615px] ">
       <img src={data.imageUrl} alt={index} className="object-fill" />
       <div className="flex flex-col gap-4 items-center">
         <h5 className="font-bold mt-4">{data.title}</h5>

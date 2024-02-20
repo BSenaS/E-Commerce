@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const FeaturedCard = ({ data, index }) => {
   return (
-    <div className="flex flex-col max-w-[340px] h-[606px] tracking-[0.2px] gap-4">
+    <div className="flex flex-col max-w-[340px] h-[606px] tracking-[0.2px] gap-4 shadow-md">
       <img src={data.imgUrl} alt={index} />
       <div className="flex flex-col ml-2 mr-2 gap-4">
         <div className="flex flex-row gap-4 text-sm ">

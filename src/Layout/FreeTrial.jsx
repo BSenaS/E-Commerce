@@ -2,15 +2,13 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const FreeTrial = () => {
   return (
-    <div className="flex flex-col items-center gap-8 my-20">
-      <h2 className="font-bold text-sBlack text-4xl">
+    <div className="flex flex-col items-center gap-8 my-20 ">
+      <h2 className="font-bold text-sBlack text-4xl md:max-w-[300px] md:text-center">
         Start your 14 days free trial
       </h2>
-      <span className="flex flex-col max-w-[420px] text-sm text-primary-gray">
-        Met minim Mollie non desert Alamo est sit cliquey dolor{" "}
-        <span className="flex justify-center">
-          do met sent. RELIT official consequent.
-        </span>
+      <span className="flex flex-col max-w-[420px] text-sm text-primary-gray md:max-w-[350px] md:text-center">
+        Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
+        RELIT official consequent.
       </span>
       <div>
         <button className="bg-pBlue text-sm font-bold text-white py-3 px-6 rounded-md ">

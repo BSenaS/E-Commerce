@@ -6,15 +6,15 @@ const ContactInfo = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-6 mt-12">
       {/* Info */}
-      <div className="flex  flex-col font-bold text-sBlack tracking-[0.2px] items-center gap-6">
+      <div className="flex  flex-col font-bold text-sBlack tracking-[0.2px] items-center gap-6 md:text-center">
         <span className="text-sm">VISIT OUR OFFICE</span>
-        <h3 className="text-5xl max-w-[670px]">
+        <h3 className="text-5xl max-w-[670px] md:text-4xl">
           We help small businesses{" "}
           <span className="flex justify-center">with big ideas</span>
         </h3>
       </div>
       {/* Trio Square */}
-      <div className="flex flex-row font-bold max-w-[1050px] gap-4 my-8">
+      <div className="flex flex-row font-bold max-w-[1050px] gap-4 my-8 md:flex-wrap md:justify-center">
         <div className="flex flex-col basis-1/3 justify-center items-center gap-4 py-12 px-4">
           <FaPhoneAlt size={72} className="text-pBlue" />
           <p>georgia.young@example.com</p>
@@ -51,7 +51,7 @@ const ContactInfo = () => {
       </div>
       {/* Lets Talk */}
       <div className="flex flex-col items-center gap-6 mb-16">
-        <h5 className="font-bold">WE Can't WAIT TI MEET YOU</h5>
+        <h5 className="font-bold">WE Can't WAIT TO MEET YOU</h5>
         <h3 className="font-bold text-6xl">Let’s Talk</h3>
         <div className="flex">
           <button className="border rounded-md py-3 px-6 bg-pBlue text-white">

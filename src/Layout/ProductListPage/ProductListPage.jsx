@@ -13,8 +13,8 @@ const ProductListPage = () => {
     <div className="w-full">
       <div>
         {/* Sayfanin en üstü */}
-        <div className="w-full bg-pbGray">
-          <div className="max-w-[1050px] mx-auto flex justify-between py-4">
+        <div className="w-full bg-pbGray md:py-8">
+          <div className="max-w-[1050px] mx-auto flex justify-between py-4 md:flex-wrap md:flex-col md:gap-8">
             <div className="flex justify-center">
               <h3 className="font-bold text-sBlack text-2xl">Shop</h3>
             </div>
@@ -31,8 +31,8 @@ const ProductListPage = () => {
         <div className="w-full bg-pbGray pb-12">
           <CategoryCardList />
         </div>
-        <div className="flex justify-between py-3 max-w-[1050px] mx-auto mb-8">
-          <span className="font-bold text-primary-gray text-sm">
+        <div className="flex justify-between py-3 max-w-[1050px] mx-auto mb-8 flex-wrap md:flex-col md:items-center md:gap-8 md:mb-16">
+          <span className="flex font-bold text-primary-gray text-sm items-center">
             Showing all 12 results
           </span>
           <div className="flex justify-center items-center gap-4">

@@ -9,9 +9,9 @@ const TeamHero = () => {
   return (
     <div className="flex flex-col">
       {/* Header kısmı */}
-      <div className="flex flex-col items-center font-bold gap-6 my-16">
+      <div className="flex flex-col items-center font-bold gap-6 my-16 md:text-center">
         <h5 className="text-primary-gray text-base">WHAT WE DO</h5>
-        <h3 className="text-sBlack text-6xl tracking-[0.2px]">
+        <h3 className="text-sBlack text-6xl tracking-[0.2px] md:text-4xl md:max-w-80">
           Innovation tailored for you
         </h3>
         <div className="flex flex-row font-bold gap-3 items-center">
@@ -21,20 +21,40 @@ const TeamHero = () => {
         </div>
       </div>
       {/* Pictures div */}
-      <div className="flex md:flex-wrap">
+      <div className="flex md:flex-wrap md:w-full">
         {/* Left Pic */}
-        <div className="flex w-1/2 md:w-full">
-          <img src={hero1} alt="hero1-img" />
+        <div className="flex w-1/2 md:w-full md:min-h-[500px]">
+          <img
+            src={hero1}
+            alt="hero1-img"
+            className="md:w-full md:min-h-[500px] md:object-fill"
+          />
         </div>
         {/* Right Pic 1/4 */}
-        <div className="flex flex-col w-1/2 justify-between">
-          <div className="flex flex-row gap-2">
-            <img src={hero2} alt="hero2-img" className="max-w-[360px]" />
-            <img src={hero3} alt="hero3-img" className="max-w-[360px]" />
+        <div className="flex flex-col w-1/2 justify-between md:w-full md:mt-4 md:gap-2">
+          <div className="flex flex-row md:w-full justify-between ">
+            <img
+              src={hero2}
+              alt="hero2-img"
+              className="max-w-[360px] md:w-[49%] md:min-h-[250px]"
+            />
+            <img
+              src={hero3}
+              alt="hero3-img"
+              className="max-w-[360px] md:w-[49%] md:min-h-[250px]"
+            />
           </div>
-          <div className="flex flex-row gap-2">
-            <img src={hero4} alt="hero4-img" className="max-w-[360px]" />
-            <img src={hero5} alt="hero5-img" className="max-w-[360px]" />
+          <div className="flex flex-row md:w-full justify-between">
+            <img
+              src={hero4}
+              alt="hero4-img"
+              className="max-w-[360px] md:w-[49%] md:min-h-[250px]"
+            />
+            <img
+              src={hero5}
+              alt="hero5-img"
+              className="max-w-[360px] md:w-[49%] md:min-h-[250px]"
+            />
           </div>
         </div>
       </div>
