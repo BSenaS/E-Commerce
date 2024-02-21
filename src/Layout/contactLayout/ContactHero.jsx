@@ -34,7 +34,11 @@ const ContactHero = () => {
       </div>
       {/* Sag Div */}
       <div className="flex md:w-[90%] md:items-center md:mx-auto md:object-left">
-        <img src={contactHero} className="md:w-[375px] md:min-h-[440px]" />
+        <img
+          src={contactHero}
+          alt="contactImg"
+          className="md:w-[375px] md:min-h-[440px]"
+        />
       </div>
     </div>
   );
