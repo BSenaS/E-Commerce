@@ -9,6 +9,7 @@ import ProductPage from "./Pages/ProductPage";
 import AboutPage from "./Pages/AboutPage";
 import TeamPage from "./Pages/TeamPage";
 import ContactPage from "./Pages/ContactPage";
+import SignUpPage from "./Pages/SignUpPage";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/contact" element={<ContactPage />}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/signup" element={<SignUpPage />}></Route>
         </Routes>
         <Footer />
       </DataContextProvider>
