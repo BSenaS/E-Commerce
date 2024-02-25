@@ -52,7 +52,9 @@ export const Header = () => {
       <div className="flex justify-between items-center px-[1.5em] max-w-[1440px] mx-auto md:flex-col flex-wrap">
         <nav className="inline-flex items-center gap-[2rem] w-full justify-between md:flex-wrap">
           <div className="flex py-4  md:inline-flex">
-            <h3 className="text-2xl font-bold">Bandage</h3>
+            <Link to={"/"}>
+              <h3 className="text-2xl font-bold">Bandage</h3>
+            </Link>
           </div>
           <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col md:w-full md:items-center md:text-xl md:order-last md:mb-12">
             <Link to={"/"}>Home</Link>
@@ -66,7 +68,7 @@ export const Header = () => {
               <FaRegUser />
               <span>Login</span>
               <span>/</span>
-              <span>Register</span>
+              <Link to={"/signup"}>Register</Link>
             </div>
             <div className="flex gap-4 flex-wrap md:w-full md:text-sBlack">
               <FaSearch className="size-5" />
