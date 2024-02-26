@@ -1,3 +1,5 @@
+import axios from "axios";
+import { AxiosInstance } from "../../axios/axiosInstance";
 export const SET_ROLES = "SET_ROLES";
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_THEME = "SET_THEME";
@@ -17,4 +19,12 @@ export const setTheme = (theme) => {
 
 export const setLang = (lang) => {
   return { type: SET_LANG, payload: lang };
+};
+
+export const fetchRoles = () => (dispatch, getState) => {
+  AxiosInstance.get("/roles")
+    .then((res) => {
+      dispatch(setRoles(res.data));
+    })
+    .catch((err) => console.log(err));
 };
