@@ -5,7 +5,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingSpinner from "./LoadingSpinner";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRoles } from "../store/actions/globalActions";
 //Initial data
 const formInitialData = {
   name: "",
@@ -22,9 +23,10 @@ const ibanRegex = /^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$/;
 
 const SignUpForm = () => {
   //Apiden gelen rolleri set ettiğim state.
-  const [roles, setRoles] = useState([]);
+  const roles = useSelector((store) => store.global.roles);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   //react hook form
   const {
@@ -50,15 +52,7 @@ const SignUpForm = () => {
 
   //Sayfa render oldugun da, rollere get isteği.
   useEffect(() => {
-    const fetchRoles = async () => {
-      try {
-        const response = await instance.get("/roles");
-        setRoles(response.data);
-      } catch (error) {
-        console.error("Error fetching roles:", error);
-      }
-    };
-    fetchRoles();
+    dispatch(fetchRoles());
   }, []);
 
   //OnSubmit fonk. -> Formdatasını ilgili apiye yollar ve serverdan dönen isteğe göre gerekli işlemleri yapar.
@@ -67,17 +61,15 @@ const SignUpForm = () => {
     setIsLoading(true);
     instance
       .post("/signup", data)
-      .then(
-        (res) => {
-          toast.success(
-            "You need to click link in email to activate your account!",
-            { position: "top-right" }
-          );
-          setIsLoading(false);
-        },
+      .then((res) => {
+        toast.success(
+          "You need to click link in email to activate your account!",
+          { position: "top-right" }
+        );
+        setIsLoading(false);
         //Önceki sayfaya yönlendir.
-        setTimeout(() => navigate(-1), 5000)
-      )
+        setTimeout(() => navigate(-1), 5000);
+      })
       .catch((err) => {
         console.log("Error:", err);
         setIsLoading(false);
@@ -86,6 +78,7 @@ const SignUpForm = () => {
           { position: "top-right" }
         );
       });
+
     console.log("form datasi:", data);
   };
 
