@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingSpinner from "./LoadingSpinner";
@@ -14,6 +14,12 @@ const formInitialData = {
   password: "",
   confirmPassword: "",
   role_id: "3",
+  store: {
+    name: "",
+    phone: "",
+    tax_no: "",
+    bank_account: "",
+  },
 };
 
 //Validasyon regexleri
@@ -194,7 +200,7 @@ const SignUpForm = () => {
               type="text"
               id="storeName"
               className="border rounded-md py-2"
-              {...register("storeName", {
+              {...register("store.name", {
                 required: "İsim alanı boş bırakalamaz.",
                 minLength: {
                   value: 3,
@@ -202,15 +208,15 @@ const SignUpForm = () => {
                 },
               })}
             />
-            {errors.storeName && (
-              <span className="text-red-500">{errors.storeName.message}</span>
+            {errors.store?.name && (
+              <span className="text-red-500">{errors.store?.name.message}</span>
             )}
             <label htmlFor="storePhone">Store Phone Number</label>
             <input
               type="text"
               id="storePhone"
               className="border rounded-md py-2"
-              {...register("storePhone", {
+              {...register("store.phone", {
                 required: "Telefon numarası gereklidir.",
 
                 pattern: {
@@ -219,16 +225,18 @@ const SignUpForm = () => {
                 },
               })}
             />
-            {errors.storePhone && (
-              <span className="text-red-500">{errors.storePhone.message}</span>
+            {errors.store?.phone && (
+              <span className="text-red-500">
+                {errors.store?.phone.message}
+              </span>
             )}
 
-            <label htmlFor="storeTax">Store Tax ID</label>
+            <label htmlFor="store.tax">Store Tax ID</label>
             <input
               type="text"
               id="storeTax"
               className="border rounded-md py-2"
-              {...register("storeTax", {
+              {...register("store.tax_no", {
                 required: "Tax ID gereklidir.",
 
                 pattern: {
@@ -237,8 +245,10 @@ const SignUpForm = () => {
                 },
               })}
             />
-            {errors.storeTax && (
-              <span className="text-red-500">{errors.storeTax.message}</span>
+            {errors.store?.tax_no && (
+              <span className="text-red-500">
+                {errors.store?.tax_no.message}
+              </span>
             )}
 
             <label htmlFor="storeIban">Store İban Numarası</label>
@@ -246,7 +256,7 @@ const SignUpForm = () => {
               type="text"
               id="storeIban"
               className="border rounded-md py-2"
-              {...register("storeIban", {
+              {...register("store.bank_account", {
                 required: "IBAN gereklidir.",
 
                 pattern: {
@@ -255,8 +265,10 @@ const SignUpForm = () => {
                 },
               })}
             />
-            {errors.storeIban && (
-              <span className="text-red-500">{errors.storeIban.message}</span>
+            {errors.store?.bank_account && (
+              <span className="text-red-500">
+                {errors.store?.bank_account.message}
+              </span>
             )}
           </>
         )}
