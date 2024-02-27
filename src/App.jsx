@@ -10,6 +10,7 @@ import AboutPage from "./Pages/AboutPage";
 import TeamPage from "./Pages/TeamPage";
 import ContactPage from "./Pages/ContactPage";
 import SignUpPage from "./Pages/SignUpPage";
+import { LoginPage } from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/signup" element={<SignUpPage />}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/login" element={<LoginPage />}></Route>
         </Routes>
         <Footer />
       </DataContextProvider>
