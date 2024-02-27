@@ -12,9 +12,22 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import { CiMail } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutActionCreator } from "../store/actions/userAction";
+import { GravatarPP } from "../Components/GravatarPP";
 
 export const Header = () => {
+  const userLoggedIn = useSelector((store) => store.user);
+  const userEmail = useSelector((store) => store.user.email);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logOutHandler = () => {
+    dispatch(logOutActionCreator());
+    navigate("/");
+  };
+
   return (
     <div className="md:w-full">
       {/* Dark NavBar */}
@@ -65,10 +78,32 @@ export const Header = () => {
           </div>
           <div className="inline-flex justify-end items-center text-[#23A6F0] gap-6">
             <div className="flex gap-2 items-center md:hidden">
-              <FaRegUser />
-              <span>Login</span>
+              {userLoggedIn.isLoggedIn ? (
+                <div className="flex flex-row items-center gap-2">
+                  <span>
+                    <GravatarPP email={userEmail} />
+                  </span>
+                  <span>{userLoggedIn.userName}</span>
+                </div>
+              ) : (
+                <div className="flex justify-center items-center gap-2">
+                  <FaRegUser />
+                  <Link to={"/login"}>
+                    <span className="cursor-pointer">Login</span>
+                  </Link>
+                </div>
+              )}
               <span>/</span>
-              <Link to={"/signup"}>Register</Link>
+              {userLoggedIn.isLoggedIn ? (
+                <span
+                  className="cursor-pointer"
+                  onClick={() => logOutHandler()}
+                >
+                  Log Out
+                </span>
+              ) : (
+                <Link to={"/signup"}>Register</Link>
+              )}
             </div>
             <div className="flex gap-4 flex-wrap md:w-full md:text-sBlack">
               <FaSearch className="size-5" />
