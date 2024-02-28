@@ -11,8 +11,20 @@ import TeamPage from "./Pages/TeamPage";
 import ContactPage from "./Pages/ContactPage";
 import SignUpPage from "./Pages/SignUpPage";
 import { LoginPage } from "./Pages/LoginPage";
+import { useEffect } from "react";
+import { AxiosInstance } from "./axios/axiosInstance";
+
+import { useDispatch } from "react-redux";
+import { autoLoginAction } from "./store/actions/userAction";
 
 function App() {
+  const dispatch = useDispatch();
+  //Auto login.
+  useEffect(() => {
+    //userAction içerisin de bulunan autologin fonksiyonu.
+    dispatch(autoLoginAction());
+  }, []);
+
   return (
     <>
       <DataContextProvider>

@@ -36,3 +36,25 @@ export const loginUserAction = (formData, navigate) => (dispatch, getState) => {
       dispatch(loginFailActionCreator(err.response.data));
     });
 };
+
+//Autologin fonksiyonu.Localde token kayıtlı ise get isteği ile server dan kullanıcı bilgilerini alıp reducura set eder.
+export const autoLoginAction = () => (dispatch, getState) => {
+  const token = localStorage.getItem("token");
+  console.log("ilk token", token);
+  if (token) {
+    AxiosInstance.get("/verify", {
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        //if theres token, sets the userData to reducer.
+        dispatch(setUserActionCreator(response.data));
+        //token renewed.
+        localStorage.setItem("token", token);
+      })
+      .catch((err) => {
+        console.log("Login Hata", err);
+      });
+  }
+};

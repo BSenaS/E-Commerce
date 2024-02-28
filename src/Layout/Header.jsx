@@ -23,8 +23,10 @@ export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //Log out oldugun da, reducerdan kullancı bilgileri ve localStorage'den token silinir.
   const logOutHandler = () => {
     dispatch(logOutActionCreator());
+    localStorage.removeItem("token");
     navigate("/");
   };
 

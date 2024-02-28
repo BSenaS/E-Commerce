@@ -30,12 +30,6 @@ export const LoginForm = () => {
     console.log("Login Datası:", formData);
   };
 
-  const getEmailHash = (email) => {
-    // E-posta adresini MD5 hashine dönüştür
-    const hash = md5(email.trim().toLowerCase());
-    return hash;
-  };
-
   return (
     <div className="flex max-w-[300px] mx-auto py-24">
       <ToastContainer position="top-right" autoClose={5000} />

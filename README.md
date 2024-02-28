@@ -1,3 +1,3 @@
-# Ecommerce project that i've started, still developing many features not added yet but if ure curious how it looks u can check the live demo.
+# Ecommerce project that i've started, still on development.
 
-<bold>LIVE VERSION OF THE PROJECT<bold/> : https://github.com/BSenaS/E-Commerce
+<bold>LIVE VERSION OF THE PROJECT<bold/> : https://e-commerce-gamma-lake.vercel.app/
