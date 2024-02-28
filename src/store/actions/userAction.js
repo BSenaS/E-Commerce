@@ -55,6 +55,8 @@ export const autoLoginAction = () => (dispatch, getState) => {
       })
       .catch((err) => {
         console.log("Login Hata", err);
+        //hata var ise tokeni siler.
+        localStorage.removeItem("token");
       });
   }
 };
