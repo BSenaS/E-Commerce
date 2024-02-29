@@ -35,9 +35,9 @@ export const ShopDropDown = () => {
             <Link
               className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
               key={index}
-              to={`/shopping/:${
+              to={`/shopping/${
                 item.gender === "k" ? "kadın" : "erkek"
-              }/:${item.title.toLowerCase()}`}
+              }/${item.title.toLowerCase()}`}
             >
               {item.gender === "k" ? "Kadın" : "Erkek"} {item.title}
             </Link>

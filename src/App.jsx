@@ -28,36 +28,24 @@ function App() {
   }, []);
 
   return (
-    <>
-      <DataContextProvider>
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<HomePage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/shop" element={<ProductListPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/product" element={<ProductPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/about" element={<AboutPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/team" element={<TeamPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/contact" element={<ContactPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/signup" element={<SignUpPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route exact path="/login" element={<LoginPage />}></Route>
-        </Routes>
-        <Footer />
-      </DataContextProvider>
-    </>
+    <DataContextProvider>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ProductListPage />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/shopping/:gender/:category"
+          element={<ProductListPage />}
+        />
+      </Routes>
+      <Footer />
+    </DataContextProvider>
   );
 }
 
