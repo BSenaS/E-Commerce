@@ -16,6 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutActionCreator } from "../store/actions/userAction";
 import { GravatarPP } from "../Components/GravatarPP";
+import { ShopDropDown } from "../Components/ShopDropDown";
 
 export const Header = () => {
   const userLoggedIn = useSelector((store) => store.user);
@@ -71,9 +72,11 @@ export const Header = () => {
               <h3 className="text-2xl font-bold">Bandage</h3>
             </Link>
           </div>
-          <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col md:w-full md:items-center md:text-xl md:order-last md:mb-12">
+          <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col md:w-full md:items-center md:text-xl md:order-last md:mb-12 items-center">
             <Link to={"/"}>Home</Link>
-            <Link to={"/shop"}>Shop</Link>
+            <Link to={"/shop"}>
+              <ShopDropDown />
+            </Link>
             <Link to={"/about"}>About</Link>
             <Link to={"/contact"}>Contact</Link>
             <Link to={"/product"}>Pages</Link>

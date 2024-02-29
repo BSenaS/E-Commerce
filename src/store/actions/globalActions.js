@@ -27,3 +27,12 @@ export const fetchRoles = () => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const fetchCategories = () => (dispatch) => {
+  AxiosInstance.get("/categories")
+    .then((res) => {
+      dispatch(setCategories(res.data));
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};

@@ -14,11 +14,11 @@ const ProductListPage = () => {
       <div>
         {/* Sayfanin en üstü */}
         <div className="w-full bg-pbGray md:py-8">
-          <div className="max-w-[1050px] mx-auto flex justify-between py-4 md:flex-wrap md:flex-col md:gap-8">
-            <div className="flex justify-center">
+          <div className="max-w-[1440px] mx-auto flex justify-between py-4 md:flex-wrap md:flex-col md:gap-8">
+            <div className="flex justify-center ml-6 md:ml-0">
               <h3 className="font-bold text-sBlack text-2xl">Shop</h3>
             </div>
-            <div className="flex justify-center gap-2 items-center">
+            <div className="flex justify-center gap-2 items-center mr-6 md:mr-0">
               <Link to={"/"} className="font-bold">
                 Home
               </Link>
