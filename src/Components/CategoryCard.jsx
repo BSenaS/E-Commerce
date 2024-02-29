@@ -11,7 +11,7 @@ export const CategoryCard = ({ data, gender, itemCategory }) => {
     <div className="md:mx-auto md:w-full ">
       {/* Kategori linki nasıl olmalı? , nereye gidecekler? */}
       <Link
-        to={`/shopping/:${genderUrl}/:${categoryUrl}`}
+        to={`/shopping/${genderUrl}/${categoryUrl}`}
         className="flex flex-wrap"
       >
         <div
