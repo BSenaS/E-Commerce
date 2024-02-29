@@ -16,6 +16,7 @@ import { AxiosInstance } from "./axios/axiosInstance";
 
 import { useDispatch } from "react-redux";
 import { autoLoginAction } from "./store/actions/userAction";
+import { fetchCategories } from "./store/actions/globalActions";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
   useEffect(() => {
     //userAction içerisin de bulunan autologin fonksiyonu.
     dispatch(autoLoginAction());
+    dispatch(fetchCategories());
   }, []);
 
   return (
