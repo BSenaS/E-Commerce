@@ -24,6 +24,7 @@ export const CategoryCardList = () => {
               data={item}
               gender={item.gender === "e" ? "Erkek" : "Kadın"}
               itemCategory={item.code}
+              id={item.id}
             />
           </div>
         ))}

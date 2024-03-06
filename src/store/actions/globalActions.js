@@ -32,7 +32,7 @@ export const fetchCategories = () => (dispatch) => {
   AxiosInstance.get("/categories")
     .then((res) => {
       dispatch(setCategories(res.data));
-      console.log(res.data);
+      // console.log(res.data);
     })
     .catch((err) => console.log(err));
 };

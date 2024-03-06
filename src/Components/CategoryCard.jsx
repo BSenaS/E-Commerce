@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchProducts } from "../store/actions/productAction";
 
-export const CategoryCard = ({ data, gender, itemCategory }) => {
+export const CategoryCard = ({ data, gender, itemCategory, id }) => {
+  const dispatch = useDispatch();
+  const [category, setCategory] = useState();
   //Url için gender propunu lowercase'e dönüştürme.
   const genderUrl = gender.toLowerCase();
   //Apiden Gelen -> "code": "k:elbise" verisini splitleyip "elbise" kısmını kullanma.
   const urlSplit = itemCategory.split(":");
   const categoryUrl = urlSplit[1];
+
+  const clickHandler = (id) => {
+    setCategory(id);
+    dispatch(fetchProducts(id));
+  };
+
+  useEffect(() => {
+    console.log("card id ->", id);
+  }, [category]);
+
   return (
     <div className="md:mx-auto md:w-full ">
       {/* Kategori linki nasıl olmalı? , nereye gidecekler? */}
       <Link
-        to={`/shopping/${genderUrl}/${categoryUrl}`}
+        to={`/shop/${genderUrl}/${categoryUrl}`}
         className="flex flex-wrap"
+        onClick={() => clickHandler(data.id)}
       >
         <div
           style={{

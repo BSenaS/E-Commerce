@@ -10,9 +10,7 @@ export const ShopDropDown = () => {
     <div className="mx-auto flex  items-center justify-center ">
       <div className="group relative cursor-pointer ">
         <div className="flex items-center justify-between  bg-white ">
-          <a className="menu-hover " onClick="">
-            Shop
-          </a>
+          <a className="menu-hover">Shop</a>
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +18,7 @@ export const ShopDropDown = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="h-4 w-4"
+              className="  w-4"
             >
               <path
                 strokeLinecap="round"

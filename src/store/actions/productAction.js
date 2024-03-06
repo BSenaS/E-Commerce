@@ -1,3 +1,4 @@
+import { AxiosInstance } from "../../axios/axiosInstance";
 export const PRODUCT_ACTION_TYPES = {
   setProductList: "SET_PRODUCT_LIST",
   setTotalProductCount: "SET_TOTAL_PRODUCT_COUNT",
@@ -26,4 +27,20 @@ export const setActivePage = (activePage) => {
 
 export const fethingState = (fetchState) => {
   return { type: PRODUCT_ACTION_TYPES.fetchState, payload: fetchState };
+};
+
+export const fetchProducts = (filter, sort, id) => (dispatch) => {
+  console.log("id burası", id);
+  AxiosInstance.get("/products", {
+    params: {
+      filter: filter,
+      sort: sort,
+      category: id,
+    },
+  })
+    .then((res) => {
+      dispatch(setProductList(res.data));
+      console.log("PRODUCTLAR", res.data);
+    })
+    .catch((err) => console.log(err));
 };
