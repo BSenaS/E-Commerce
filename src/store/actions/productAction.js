@@ -4,7 +4,7 @@ export const PRODUCT_ACTION_TYPES = {
   setTotalProductCount: "SET_TOTAL_PRODUCT_COUNT",
   setPageCount: "SET_PAGE_COUNT",
   setActivePage: "SET_ACTIVE_PAGE",
-  fetchState: "SET_FETCH_STATE",
+  setFetchState: "SET_FETCH_STATE",
 };
 
 export const setProductList = (product) => {
@@ -25,22 +25,27 @@ export const setActivePage = (activePage) => {
   return { type: PRODUCT_ACTION_TYPES.setActivePage, payload: activePage };
 };
 
-export const fethingState = (fetchState) => {
-  return { type: PRODUCT_ACTION_TYPES.fetchState, payload: fetchState };
+export const setFetchState = (fetchState) => {
+  return {
+    type: PRODUCT_ACTION_TYPES.setFetchState,
+    payload: fetchState,
+  };
 };
 
-export const fetchProducts = (filter, sort, id) => (dispatch) => {
-  console.log("id burası", id);
-  AxiosInstance.get("/products", {
-    params: {
-      filter: filter,
-      sort: sort,
-      category: id,
-    },
-  })
-    .then((res) => {
-      dispatch(setProductList(res.data));
-      console.log("PRODUCTLAR", res.data);
-    })
-    .catch((err) => console.log(err));
+export const fetchProducts = (queryParams) => (dispatch) => {
+  dispatch(setFetchState("FETCHING"));
+  return new Promise((resolve, reject) => {
+    AxiosInstance.get("/products", { params: queryParams })
+      .then((res) => {
+        const products = res.data;
+        dispatch(setProductList(products));
+        dispatch(setFetchState("FETCHED"));
+        resolve();
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        dispatch(setFetchState("FAILED"));
+        reject(error);
+      });
+  });
 };

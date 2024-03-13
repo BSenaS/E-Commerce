@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useQuery from "../hooks/useQuery";
+import { useSelector } from "react-redux";
 
 export const ProductCard = ({ data, index }) => {
+  // const { getQueryFromUrl } = useQuery();
+  // const fetchState = useSelector((store) => store.product.fetchState);
+  // useEffect(() => {
+  //   getQueryFromUrl();
+  // }, [window.location.searc]);
+
   return (
     <Link className="flex flex-col w-60 h-[615px] ">
       <img src={data.images?.[0]?.url} alt={index} className="object-fill" />
