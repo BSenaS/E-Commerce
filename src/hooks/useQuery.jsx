@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchProducts } from "../store/actions/productAction";
 const useQuery = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [category, setCategory] = useState();
-  const [gender, setGender] = useState();
   const [filterText, setFilterText] = useState("");
   const [filterSort, setFilterSort] = useState("");
-
+  const [limit, setLimit] = useState();
   //Sayfa linki yenilendiğin de veya kopyalanıp başka bir tabden açıldığın da, url den parametre sorgusunu yapan fonksiyon.
   const getQueryFromUrl = () => {
     const urlSearchParams = new URLSearchParams(window.location.search);
