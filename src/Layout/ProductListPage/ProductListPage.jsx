@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/actions/productAction";
 import useQuery from "../../hooks/useQuery";
 import ReactPaginate from "react-paginate";
+import ProductPage from "../../Pages/ProductPage";
 
 const ProductListPage = () => {
   const productListData = useSelector((store) => store.product.productList);

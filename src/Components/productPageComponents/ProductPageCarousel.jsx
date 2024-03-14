@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { useData } from "../../context/DataContext";
+import { useSelector } from "react-redux";
 const ProductPageCarousel = () => {
+  const activeProduct = useSelector((store) => store.product.currentProduct);
+
   const { productData } = useData();
   const [imgIndex, setImgIndex] = useState(0);
 
@@ -29,22 +32,22 @@ const ProductPageCarousel = () => {
         {/* img */}
         <div className="max-h-[450px] max-w-[510px] md:w-full ">
           <img
-            src={productData.imageUrl[imgIndex]}
+            src={activeProduct.images?.[0]?.url}
             alt="asd"
-            className="object-cover h-full w-full"
+            className="object-fill h-full w-full"
           />
         </div>
         <div className="flex flex-row gap-4">
           <img
-            src={productData.imageUrl[0]}
+            src={activeProduct.images?.[0]?.url}
             alt="img1"
-            className="max-h-[75px] w-[100px] object-cover cursor-pointer"
+            className="max-h-[75px] w-[100px] object-fill cursor-pointer"
             onClick={() => goToSlide(0)}
           />
           <img
-            src={productData.imageUrl[1]}
+            src={activeProduct.images?.[0]?.url}
             alt="img2"
-            className="max-h-[75px] w-[100px] object-cover cursor-pointer"
+            className="max-h-[75px] w-[100px] object-fill cursor-pointer"
             onClick={() => goToSlide(1)}
           />
         </div>

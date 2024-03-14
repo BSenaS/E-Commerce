@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { autoLoginAction } from "./store/actions/userAction";
 import { fetchCategories } from "./store/actions/globalActions";
 import { fetchProducts } from "./store/actions/productAction";
+import { ProductDetails } from "./Layout/productPage/ProductDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ProductListPage />} />
+        <Route
+          path="/:category/:productId/:productNameSlug"
+          element={<ProductPage />}
+        />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/team" element={<TeamPage />} />

@@ -6,6 +6,7 @@ const productInitial = {
   pageCount: 0,
   activePage: 0,
   fetchState: "NOT_FETCHED",
+  currentProduct: {},
 };
 
 export const productReducer = (state = productInitial, action) => {
@@ -23,6 +24,8 @@ export const productReducer = (state = productInitial, action) => {
         ...state,
         fetchState: action.payload,
       };
+    case PRODUCT_ACTION_TYPES.setCurrentProduct:
+      return { ...state, currentProduct: action.payload };
     default:
       return state;
   }

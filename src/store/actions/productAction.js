@@ -5,6 +5,7 @@ export const PRODUCT_ACTION_TYPES = {
   setPageCount: "SET_PAGE_COUNT",
   setActivePage: "SET_ACTIVE_PAGE",
   setFetchState: "SET_FETCH_STATE",
+  setCurrentProduct: "SET_CURRENT_PRODUCT",
 };
 
 export const setProductList = (product) => {
@@ -29,6 +30,13 @@ export const setFetchState = (fetchState) => {
   return {
     type: PRODUCT_ACTION_TYPES.setFetchState,
     payload: fetchState,
+  };
+};
+
+export const currentProductAction = (data) => {
+  return {
+    type: PRODUCT_ACTION_TYPES.setCurrentProduct,
+    payload: data,
   };
 };
 

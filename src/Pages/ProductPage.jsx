@@ -4,7 +4,7 @@ import { ProductInfo } from "../Layout/productPage/ProductInfo";
 import ProductBestSeller from "../Layout/productPage/ProductBestSeller";
 import Clients from "../Components/Clients";
 
-const ProductPage = () => {
+const ProductPage = ({ data }) => {
   return (
     <div>
       <ProductDetails />

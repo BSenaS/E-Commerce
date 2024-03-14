@@ -2,8 +2,11 @@ import React from "react";
 import ProductPageCarousel from "../../Components/productPageComponents/ProductPageCarousel";
 import { FaRegStar, FaRegHeart, FaEye, FaStar } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 export const ProductDetails = () => {
+  const activeProduct = useSelector((store) => store.product.currentProduct);
+
   return (
     <div className="w-full bg-pbGray flex-wrap">
       <div className="flex flex-row gap-4 max-w-[1440px] mx-auto py-6 md:justify-center ">
@@ -18,7 +21,7 @@ export const ProductDetails = () => {
         </div>
         {/* Burası productın detail kısmı */}
         <div className="flex flex-col flex-wrap w-[510px] h-[470px] justify-around md:w-[350px] md:mx-auto md:items-center md:my-8">
-          <h5 className="text-xl font-bold">Floating Phone</h5>
+          <h5 className="text-xl font-bold">{activeProduct.name}</h5>
           <div className="flex flex-row gap-1">
             <FaStar className="text-[#F3CD03]" size={23} />
             <FaStar className="text-[#F3CD03]" size={23} />
@@ -32,7 +35,7 @@ export const ProductDetails = () => {
             </div>
           </div>
           <div>
-            <span className="text-2xl font-bold">$1,139.33</span>
+            <span className="text-2xl font-bold">{`$${activeProduct.price}`}</span>
           </div>
           <div className="flex flex-row gap-2 items-center">
             <span className="text-sm font-bold text-primary-gray">
@@ -43,9 +46,7 @@ export const ProductDetails = () => {
           {/* Desct */}
           <div className="max-w-[450px]">
             <p className="text-[#858585] text-sm md:text-center">
-              Met minim Mollie non desert Alamo est sit cliquey dolor do met
-              sent. RELIT official consequent door ENIM RELIT Mollie. Excitation
-              venial consequent sent nostrum met.
+              {activeProduct.description}
             </p>
           </div>
           <hr className="border" />
