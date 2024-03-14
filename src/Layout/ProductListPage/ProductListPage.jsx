@@ -8,25 +8,22 @@ import { CiBoxList } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/actions/productAction";
 import useQuery from "../../hooks/useQuery";
+import ReactPaginate from "react-paginate";
 
 const ProductListPage = () => {
-  const dispatch = useDispatch();
-  const location = useLocation();
   const productListData = useSelector((store) => store.product.productList);
-  const loadingState = useSelector((store) => store.product.fetchState);
   const fetchState = useSelector((store) => store.product.fetchState);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 25;
   //-Text inputa kullanıcı tarafından girilen değeri tuttugum state.
   const {
-    data,
-    loading,
-    error,
     getQueryData,
     setFilterText,
     setFilterSort,
-    getQueryDatawithCategory,
     getQueryFromUrl,
     filterText,
     filterSort,
+    setPaginationOffSet,
   } = useQuery();
   //Inputa girilen değeri filter stateine set etme.
   const handleFilterChange = (e) => {
@@ -35,6 +32,15 @@ const ProductListPage = () => {
   //Select seçimini set etme.
   const handleSortChange = (e) => {
     setFilterSort(e.target.value);
+  };
+
+  //Pagination
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    const offset = selected * itemsPerPage;
+    setPaginationOffSet(offset);
+    getQueryData();
+    console.log("Current Page", currentPage);
   };
 
   const filterProduct = () => {
@@ -48,8 +54,6 @@ const ProductListPage = () => {
   useEffect(() => {
     getQueryFromUrl();
   }, [window.location.search]);
-
-  console.log("Fetch state yeni", fetchState);
 
   if (productListData.length < 1) {
     return "Loading....";
@@ -142,6 +146,18 @@ const ProductListPage = () => {
               ))}
             </div>
           )}
+        </div>
+        <div className="flex max-w-[1440px] justify-center mx-auto">
+          <ReactPaginate
+            previousLabel={`<<`}
+            nextLabel={">>"}
+            breakLabel={"..."}
+            pageCount={25}
+            marginPagesDisplayed={3}
+            pageRangeDisplayed={3}
+            onPageChange={handlePageClick}
+            className="flex gap-4 text-pBlue text-lg border"
+          />
         </div>
         <Clients />
       </div>

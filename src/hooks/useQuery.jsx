@@ -7,17 +7,22 @@ const useQuery = () => {
   const navigate = useNavigate();
   const [filterText, setFilterText] = useState("");
   const [filterSort, setFilterSort] = useState("");
-  const [limit, setLimit] = useState();
+  const [paginationLimit, setPaginationLimit] = useState(25);
+  const [paginationOffSet, setPaginationOffSet] = useState(0);
   //Sayfa linki yenilendiğin de veya kopyalanıp başka bir tabden açıldığın da, url den parametre sorgusunu yapan fonksiyon.
   const getQueryFromUrl = () => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const categoryParam = urlSearchParams.get("category");
     const filterTextParam = urlSearchParams.get("filter");
     const filterSortParam = urlSearchParams.get("sort");
+    const paginationLimit = urlSearchParams.get("limit");
+    const paginationOffSet = urlSearchParams.get("offset");
     const myObject = {
       category: categoryParam || null,
       filter: filterTextParam || null,
       sort: filterSortParam || null,
+      limit: paginationLimit || null,
+      offset: paginationOffSet || null,
     };
     dispatch(fetchProducts(myObject));
   };
@@ -29,6 +34,8 @@ const useQuery = () => {
       category: category || null,
       filter: filterText || null,
       sort: filterSort || null,
+      limit: paginationLimit || null,
+      offset: paginationOffSet || null,
     };
     console.log("category id si : -> ", category, gender);
     dispatch(fetchProducts(myObject));
@@ -36,6 +43,8 @@ const useQuery = () => {
     if (category) queryParams.append("category", category);
     if (filterText) queryParams.append("filter", filterText);
     if (filterSort) queryParams.append("sort", filterSort);
+    if (paginationLimit) queryParams.append("limit", paginationLimit);
+    if (paginationOffSet) queryParams.append("offset", paginationOffSet);
     const queryString = queryParams.toString();
     const fullUrl =
       queryString &&
@@ -57,6 +66,8 @@ const useQuery = () => {
     getQueryFromUrl,
     filterText,
     filterSort,
+    setPaginationOffSet,
+    paginationLimit,
   };
 };
 
