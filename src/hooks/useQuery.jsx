@@ -5,13 +5,10 @@ import { fetchProducts } from "../store/actions/productAction";
 const useQuery = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [category, setCategory] = useState();
-  // const [gender, setGender] = useState();
+  const [category, setCategory] = useState();
+  const [gender, setGender] = useState();
   const [filterText, setFilterText] = useState("");
   const [filterSort, setFilterSort] = useState("");
-  const getQueryDatawithCategory = (category, gender) => {
-    getQueryData(category, gender);
-  };
 
   //Sayfa linki yenilendiğin de veya kopyalanıp başka bir tabden açıldığın da, url den parametre sorgusunu yapan fonksiyon.
   const getQueryFromUrl = () => {
@@ -28,27 +25,28 @@ const useQuery = () => {
   };
 
   //Filter actionu tetiklendiğin de çalışan fonsk, gerekli url parametreleri eklenir ve dispatch atılır.
+  //Sorun 1. category card ve dropdown objelerine tıklandığın da gidilmesi gereken urlye yönlendirme olmuyor? lakin fetch işlemi yapılıyor...
   const getQueryData = (category, gender) => {
     const myObject = {
       category: category || null,
       filter: filterText || null,
       sort: filterSort || null,
     };
-
+    console.log("category id si : -> ", category, gender);
     dispatch(fetchProducts(myObject));
     const queryParams = new URLSearchParams();
+    if (category) queryParams.append("category", category);
     if (filterText) queryParams.append("filter", filterText);
     if (filterSort) queryParams.append("sort", filterSort);
-    if (category) queryParams.append("category", category);
     const queryString = queryParams.toString();
-    // const fullUrl =
-    //   queryString &&
-    //   `/shop${
-    //     gender && gender === "k" ? "/women" : "/men"
-    //   }/products?${queryString}`;
-    const fullUrl = queryString
-      ? `/shop/products?${queryString}`
-      : "/shop/products";
+    const fullUrl =
+      queryString &&
+      `/shop${
+        gender && gender === "k" ? "/women" : "/men"
+      }/products?${queryString}`;
+    // const fullUrl = queryString
+    //   ? `/shop/products?${queryString}`
+    //   : "/shop/products";
     if (fullUrl) {
       navigate(fullUrl);
     }
@@ -58,7 +56,6 @@ const useQuery = () => {
     getQueryData,
     setFilterText,
     setFilterSort,
-    getQueryDatawithCategory,
     getQueryFromUrl,
     filterText,
     filterSort,

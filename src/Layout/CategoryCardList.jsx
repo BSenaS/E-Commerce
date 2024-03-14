@@ -22,7 +22,7 @@ export const CategoryCardList = () => {
           >
             <CategoryCard
               data={item}
-              gender={item.gender === "e" ? "Erkek" : "Kadın"}
+              genderTitle={item.gender === "e" ? "Erkek" : "Kadın"}
               itemCategory={item.code}
               id={item.id}
             />

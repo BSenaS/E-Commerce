@@ -1,11 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useQuery from "../hooks/useQuery";
 
 export const ShopDropDown = () => {
   const categoryData = useSelector((store) => store.global.categories);
+  const { getQueryData } = useQuery();
+
   //Genderdan bize -> k ya da e dönüyor.
 
+  const clickHandler = (category, gender) => {
+    getQueryData(category, gender);
+  };
   return (
     <div className="mx-auto flex  items-center justify-center ">
       <div className="group relative cursor-pointer ">
@@ -33,9 +39,10 @@ export const ShopDropDown = () => {
             <Link
               className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
               key={index}
-              to={`/shopping/${
-                item.gender === "k" ? "kadın" : "erkek"
-              }/${item.title.toLowerCase()}`}
+              // to={`/shop/${
+              //   item.gender === "k" ? "kadın" : "erkek"
+              // }/${item.title.toLowerCase()}`}
+              onClick={() => clickHandler(item.id, item.gender)}
             >
               {item.gender === "k" ? "Kadın" : "Erkek"} {item.title}
             </Link>
