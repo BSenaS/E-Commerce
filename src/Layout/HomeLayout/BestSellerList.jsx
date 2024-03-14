@@ -1,9 +1,14 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
 import { ProductCard } from "../../Components/ProductCard";
+import { useSelector } from "react-redux";
 
 const BestSellerList = () => {
-  const { bestSellerData } = useData();
+  const bestSellerData = useSelector((store) => store.product.productList);
+
+  if (bestSellerData.length < 1) {
+    return;
+  }
   return (
     <div className="max-w-[1050px] mx-auto">
       <div className="flex flex-col items-center gap-4 my-16">

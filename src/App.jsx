@@ -17,6 +17,7 @@ import { AxiosInstance } from "./axios/axiosInstance";
 import { useDispatch } from "react-redux";
 import { autoLoginAction } from "./store/actions/userAction";
 import { fetchCategories } from "./store/actions/globalActions";
+import { fetchProducts } from "./store/actions/productAction";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
     //userAction içerisin de bulunan autologin fonksiyonu.
     dispatch(autoLoginAction());
     dispatch(fetchCategories());
+    dispatch(fetchProducts());
   }, []);
 
   return (
@@ -39,10 +41,9 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/shopping/:gender/:category"
-          element={<ProductListPage />}
-        />
+        <Route path="/shop/:gender/:category" element={<ProductListPage />} />
+        <Route path="/shop/:filter" element={<ProductListPage />} />
+        <Route path="/shop/:sort" element={<ProductListPage />} />
       </Routes>
       <Footer />
     </DataContextProvider>
