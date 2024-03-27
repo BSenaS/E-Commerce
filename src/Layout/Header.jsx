@@ -112,7 +112,10 @@ export const Header = () => {
             </div>
             <div className="flex gap-4 flex-wrap md:w-full md:text-sBlack">
               <FaSearch className="size-5" />
-              <MdOutlineShoppingCart className="size-5" />
+              <Link>
+                {" "}
+                <MdOutlineShoppingCart className="size-5" />
+              </Link>
               <FaRegHeart className="size-5 md:hidden" />
               <RxHamburgerMenu className="size-5 hidden md:inline-flex" />
             </div>

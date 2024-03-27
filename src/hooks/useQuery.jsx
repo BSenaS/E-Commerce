@@ -15,14 +15,14 @@ const useQuery = () => {
     const categoryParam = urlSearchParams.get("category");
     const filterTextParam = urlSearchParams.get("filter");
     const filterSortParam = urlSearchParams.get("sort");
-    const paginationLimit = urlSearchParams.get("limit");
-    const paginationOffSet = urlSearchParams.get("offset");
+    const paginationLimitParam = urlSearchParams.get("limit");
+    const paginationOffSetParam = urlSearchParams.get("offset");
     const myObject = {
       category: categoryParam || null,
       filter: filterTextParam || null,
       sort: filterSortParam || null,
-      limit: paginationLimit || null,
-      offset: paginationOffSet || null,
+      limit: paginationLimitParam || null,
+      offset: paginationOffSetParam || null,
     };
     dispatch(fetchProducts(myObject));
   };
@@ -46,16 +46,18 @@ const useQuery = () => {
     if (paginationLimit) queryParams.append("limit", paginationLimit);
     if (paginationOffSet) queryParams.append("offset", paginationOffSet);
     const queryString = queryParams.toString();
-    const fullUrl =
-      queryString &&
-      `/shop${
-        gender && gender === "k" ? "/women" : "/men"
-      }/products?${queryString}`;
-    // const fullUrl = queryString
-    //   ? `/shop/products?${queryString}`
-    //   : "/shop/products";
-    if (fullUrl) {
-      navigate(fullUrl);
+    let fullUrl = "";
+    if (queryString) {
+      if (gender && gender === "k") {
+        fullUrl = `/shop/women/products?${queryString}`;
+        navigate(fullUrl);
+      } else if (gender && gender === "e") {
+        fullUrl = `/shop/men/products?${queryString}`;
+        navigate(fullUrl);
+      } else {
+        fullUrl = `/shop/products?${queryString}`;
+        navigate(fullUrl);
+      }
     }
   };
 
@@ -68,6 +70,7 @@ const useQuery = () => {
     filterSort,
     setPaginationOffSet,
     paginationLimit,
+    paginationOffSet,
   };
 };
 

@@ -13,6 +13,7 @@ import ProductPage from "../../Pages/ProductPage";
 
 const ProductListPage = () => {
   const productListData = useSelector((store) => store.product.productList);
+  const productTotal = useSelector((store) => store.product.totalProductCount);
   const fetchState = useSelector((store) => store.product.fetchState);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 25;
@@ -25,6 +26,7 @@ const ProductListPage = () => {
     filterText,
     filterSort,
     setPaginationOffSet,
+    paginationOffSet,
   } = useQuery();
   //Inputa girilen değeri filter stateine set etme.
   const handleFilterChange = (e) => {
@@ -36,11 +38,18 @@ const ProductListPage = () => {
   };
 
   //Pagination
+  //-Gelen ürün sayısı kadar pagination sayısı.
+  let totalPageCount = 0;
+  if (productTotal <= 25) {
+    totalPageCount = 1;
+  } else {
+    totalPageCount = Math.ceil(productTotal / 25);
+  }
+
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
     const offset = selected * itemsPerPage;
     setPaginationOffSet(offset);
-    getQueryData();
     console.log("Current Page", currentPage);
   };
 
@@ -52,9 +61,14 @@ const ProductListPage = () => {
   useEffect(() => {
     getQueryFromUrl();
   }, []);
+
   useEffect(() => {
     getQueryFromUrl();
   }, [window.location.search]);
+
+  useEffect(() => {
+    getQueryData();
+  }, [paginationOffSet]);
 
   if (productListData.length < 1) {
     return "Loading....";
@@ -83,7 +97,7 @@ const ProductListPage = () => {
         </div>
         <div className="flex justify-between py-3 max-w-[1050px] mx-auto mb-8 flex-wrap md:flex-col md:items-center md:gap-8 md:mb-16">
           <span className="flex font-bold text-primary-gray text-sm items-center">
-            Showing all {productListData.products.length} results
+            Showing all {productTotal} results
           </span>
           <div className="flex justify-center items-center gap-4">
             <span className="text-primary-gray font-bold text-sm">Views:</span>
@@ -153,7 +167,7 @@ const ProductListPage = () => {
             previousLabel={`<<`}
             nextLabel={">>"}
             breakLabel={"..."}
-            pageCount={25}
+            pageCount={totalPageCount}
             marginPagesDisplayed={3}
             pageRangeDisplayed={3}
             onPageChange={handlePageClick}
