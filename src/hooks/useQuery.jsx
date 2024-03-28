@@ -43,19 +43,19 @@ const useQuery = () => {
     if (category) queryParams.append("category", category);
     if (filterText) queryParams.append("filter", filterText);
     if (filterSort) queryParams.append("sort", filterSort);
-    if (paginationLimit) queryParams.append("limit", paginationLimit);
+    // if (paginationLimit) queryParams.append("limit", paginationLimit);
     if (paginationOffSet) queryParams.append("offset", paginationOffSet);
     const queryString = queryParams.toString();
     let fullUrl = "";
     if (queryString) {
       if (gender && gender === "k") {
         fullUrl = `/shop/women/products?${queryString}`;
-        navigate(fullUrl);
       } else if (gender && gender === "e") {
         fullUrl = `/shop/men/products?${queryString}`;
-        navigate(fullUrl);
       } else {
         fullUrl = `/shop/products?${queryString}`;
+      }
+      if (fullUrl) {
         navigate(fullUrl);
       }
     }
