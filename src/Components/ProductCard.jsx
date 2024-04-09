@@ -19,20 +19,34 @@ export const ProductCard = ({ data, index }) => {
 
   return (
     <Link
-      className="flex flex-col w-60 h-[615px] "
+      className="flex flex-col basis-60"
       to={`/${activeProduct.category_id}/${activeProduct.id}/${activeProduct.name}`}
       onClick={() => currentProductHandler(data)}
     >
-      <img src={data.images?.[0]?.url} alt={index} className="object-fill" />
+      <img src={data.images?.[0]?.url} alt={index} className="object-contain" />
       <div className="flex flex-col gap-4 items-center">
-        <h5 className="font-bold mt-4">{data.name}</h5>
+        <h5 className="font-bold mt-5">{data.name}</h5>
+        <span className="flex w-11/12 text-center text-primary-gray font-medium">
+          {data.description}
+        </span>
         <span className="text-primary-gray font-bold">{data.department}</span>
-        <div className="font-bold">
-          <span className=" ">Price: {data.price}</span>
-          <span className="ml-2 text-sGreen ">Stock :{data.stock}</span>
+        <div className="font-bold ">
+          <span className=" ">
+            Price: <span className="text-sGreen">{`$${data.price}`}</span>
+            <span className="ml-2">
+              Stock: <span className="text-sGreen">{data.stock}</span>
+            </span>
+          </span>
+        </div>
+        <div></div>
+        <div className="flex items-center gap-2">
+          <span className="font-bold ">Rating: {data.rating}</span>
         </div>
         <div className="flex items-center gap-2 mb-5">
-          <span className=" ">Rating: {data.rating}</span>
+          <div className="w-4 h-4 bg-blue-500 rounded-full" />
+          <div className="w-4 h-4 bg-teal-700 rounded-full" />
+          <div className="w-4 h-4 bg-orange-400 rounded-full" />
+          <div className="w-4 h-4 bg-black rounded-full" />{" "}
         </div>
       </div>
     </Link>

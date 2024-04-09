@@ -66,7 +66,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex font-bold text-primary-gray text-sm py-6 md:max-w-42 md:text-center md:mx-auto">
-          <h6>Made With Love By Finland All Right Reserved </h6>
+          <h6>Made With Love By Batuhan All Right Reserved </h6>
         </div>
       </div>
     </div>

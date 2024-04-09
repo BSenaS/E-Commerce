@@ -155,7 +155,10 @@ const ProductListPage = () => {
           ) : (
             <div className="flex flex-wrap justify-between mx-2">
               {productListData.products.map((item, index) => (
-                <div key={index} className="flex flex-row max-w-60 md:mx-auto">
+                <div
+                  key={index}
+                  className="flex flex-row max-w-60 md:mx-auto gap-y-4 shadow-md mb-5"
+                >
                   <ProductCard data={item} key={index} />
                 </div>
               ))}

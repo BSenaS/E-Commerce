@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOutActionCreator } from "../store/actions/userAction";
 import { GravatarPP } from "../Components/GravatarPP";
 import { ShopDropDown } from "../Components/ShopDropDown";
+import { ShoppingCartDropDown } from "../Components/ShoppingCartDropDown";
 
 export const Header = () => {
   const userLoggedIn = useSelector((store) => store.user);
@@ -111,11 +112,11 @@ export const Header = () => {
               )}
             </div>
             <div className="flex gap-4 flex-wrap md:w-full md:text-sBlack">
-              <FaSearch className="size-5" />
-              <Link>
-                {" "}
-                <MdOutlineShoppingCart className="size-5" />
-              </Link>
+              <FaSearch className="size-5" />{" "}
+              {/* <MdOutlineShoppingCart className="size-5 cursor-pointer">
+                
+              </MdOutlineShoppingCart> */}
+              <ShoppingCartDropDown />
               <FaRegHeart className="size-5 md:hidden" />
               <RxHamburgerMenu className="size-5 hidden md:inline-flex" />
             </div>

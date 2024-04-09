@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductPageCarousel from "../../Components/productPageComponents/ProductPageCarousel";
 import { FaRegStar, FaRegHeart, FaEye, FaStar } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setCart,
+  updateCartItemCount,
+} from "../../store/actions/shoppingCartAction";
 
 export const ProductDetails = () => {
+  const dispatch = useDispatch();
   const activeProduct = useSelector((store) => store.product.currentProduct);
+  const cartItems = useSelector((store) => store.shoppingCart.cart);
+
+  const handleAddToCart = () => {
+    const existingItem = cartItems.find(
+      (item) => item.product.id === activeProduct.id
+    );
+    //Eğer ürün zaten eklenmişse, count değerini 1 arttır.
+    if (existingItem) {
+      dispatch(updateCartItemCount(activeProduct.id, existingItem.count + 1));
+    } else {
+      //Ürün daha önce eklenmediyse, count: 1 , ve ürünü ekle.
+      dispatch(setCart(1, activeProduct));
+    }
+  };
+
+  useEffect(() => {
+    console.log("KARTA EKLENEN ÜRÜN?", cartItems);
+  }, [cartItems]);
 
   return (
     <div className="w-full bg-pbGray flex-wrap">
@@ -62,7 +85,11 @@ export const ProductDetails = () => {
             </button>
             <div className="flex flex-row gap-4">
               <FaRegHeart size={26} className="cursor-pointer" />
-              <FiShoppingCart size={26} className="cursor-pointer" />
+              <FiShoppingCart
+                size={26}
+                className="cursor-pointer"
+                onClick={handleAddToCart}
+              />
               <FaEye size={26} className="cursor-pointer" />
             </div>
           </div>

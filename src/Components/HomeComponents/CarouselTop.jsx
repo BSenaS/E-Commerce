@@ -4,6 +4,7 @@ import { RxDotFilled } from "react-icons/rx";
 import carouselimg1 from "../../assets/carouselimg1.jpeg";
 import carouselimg2 from "../../assets/carouselimg2.jpg";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 export const CarouselTop = () => {
   const slides = [
     {
@@ -66,9 +67,12 @@ export const CarouselTop = () => {
                 but things on a small scale.
               </p>
               <div className="flex justify-start ">
-                <button className="text-white font-bold text-xl bg-[#2DC071] p-4 rounded-md">
+                <Link
+                  to="/shop"
+                  className="text-white font-bold text-xl bg-[#2DC071] p-4 rounded-md"
+                >
                   SHOP NOW
-                </button>
+                </Link>
               </div>
             </div>
             {/* Slider DOTLARI */}

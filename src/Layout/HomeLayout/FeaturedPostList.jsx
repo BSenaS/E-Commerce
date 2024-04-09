@@ -14,7 +14,7 @@ export const FeaturedPostList = () => {
           of Classical physics: Newtonian mechanics{" "}
         </p>
       </div>
-      <div className="flex flex-row justify-between flex-wrap">
+      <div className="flex flex-row justify-between flex-wrap gap-row gap-y-4">
         {featurePostData.posts.map((item, index) => (
           <div key={item.id} className="flex mx-auto">
             <FeaturedCard data={item} index={index} />

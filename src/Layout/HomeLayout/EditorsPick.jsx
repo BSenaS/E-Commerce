@@ -23,9 +23,12 @@ export const EditorsPick = () => {
               alt="menImg"
               className="object-cover w-full h-full object-center"
             />
-            <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black shadow-xl   hover:opacity-75 ">
+            <Link
+              to={"/shop"}
+              className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black shadow-xl   hover:opacity-75 "
+            >
               MEN
-            </button>
+            </Link>
           </div>
           {/* 1/4 Solo Kadın Resmi */}
           <div className="relative max-w-[510px] w-[240px] max-h-[500px] md:w-[85%] md:h-[500px] mx-auto">
@@ -34,9 +37,12 @@ export const EditorsPick = () => {
               alt="womenImg"
               className="object-cover w-full h-full object-center"
             />
-            <button className="absolute bottom-0 mb-4 ml-6 px-8 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75 ">
+            <Link
+              to={"/shop"}
+              className="absolute bottom-0 mb-4 ml-6 px-8 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75 "
+            >
               WOMEN
-            </button>
+            </Link>
           </div>
           {/* 1/4 1/2, 2li resimler  */}
           <div className="flex flex-col gap-3 m-auto md:w-full md:gap-8">
@@ -46,9 +52,12 @@ export const EditorsPick = () => {
                 alt="womenImg"
                 className="object-cover w-full h-full object-center"
               />
-              <button className="absolute bottom-0 mb-4 ml-4 px-4 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75">
+              <Link
+                to={"/shop"}
+                className="absolute bottom-0 mb-4 ml-4 px-4 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75"
+              >
                 <span className="mx-auto">ACCESSORIES</span>
-              </button>
+              </Link>
             </div>
 
             <div className="relative w-[240px] h-[242px] bg-no-repeat bg-cover cursor-pointer m-auto md:w-[85%]">
@@ -57,9 +66,12 @@ export const EditorsPick = () => {
                 alt="womenImg"
                 className="object-cover w-full h-full object-center"
               />
-              <button className="absolute bottom-0 mb-4 ml-4 px-10 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75">
+              <Link
+                to={"/shop"}
+                className="absolute bottom-0 mb-4 ml-4 px-10 py-3 font-bold tracking-normal bg-white text-black shadow-xl hover:opacity-75"
+              >
                 <span className="mx-auto">KIDS</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
