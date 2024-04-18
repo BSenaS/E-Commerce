@@ -7,9 +7,13 @@ import {
   setCart,
   updateCartItemCount,
 } from "../../store/actions/shoppingCartAction";
+import { useParams } from "react-router-dom";
+import { AxiosInstance } from "../../axios/axiosInstance";
+import { currentProductAction } from "../../store/actions/productAction";
 
 export const ProductDetails = () => {
   const dispatch = useDispatch();
+  const { productId } = useParams();
   const activeProduct = useSelector((store) => store.product.currentProduct);
   const cartItems = useSelector((store) => store.shoppingCart.cart);
 
@@ -26,9 +30,13 @@ export const ProductDetails = () => {
     }
   };
 
+  //Search Param ile productID routingden yakalanır ve productID ye göre, apiye get isteği atılır.
   useEffect(() => {
-    console.log("KARTA EKLENEN ÜRÜN?", cartItems);
-  }, [cartItems]);
+    AxiosInstance.get(`/products/${productId}`).then((res) => {
+      const products = res.data;
+      dispatch(currentProductAction(products));
+    });
+  }, [productId]);
 
   return (
     <div className="w-full bg-pbGray flex-wrap">

@@ -10,7 +10,6 @@ export const CategoryCardList = () => {
   console.log(sortedData);
   //Ratinge göre dizilmiş yeni verinin ilk 5 verisini alma.
   const categoryTopFive = sortedData.slice(0, 5);
-  useEffect(() => {}, []);
 
   return (
     <div className="max-w-[1440px] flex flex-row mx-auto md:flex-wrap md:flex-col justify-between  md:gap-4 ">

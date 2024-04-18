@@ -34,20 +34,20 @@ const ProductPageCarousel = () => {
           <img
             src={activeProduct.images?.[0]?.url}
             alt="asd"
-            className="object-fill h-full w-full"
+            className="object-contain h-full w-full"
           />
         </div>
         <div className="flex flex-row gap-4">
           <img
             src={activeProduct.images?.[0]?.url}
             alt="img1"
-            className="max-h-[75px] w-[100px] object-fill cursor-pointer"
+            className="max-h-[75px] w-[100px] object-contain cursor-pointer"
             onClick={() => goToSlide(0)}
           />
           <img
             src={activeProduct.images?.[0]?.url}
             alt="img2"
-            className="max-h-[75px] w-[100px] object-fill cursor-pointer"
+            className="max-h-[75px] w-[100px] object-contain cursor-pointer"
             onClick={() => goToSlide(1)}
           />
         </div>
@@ -55,14 +55,14 @@ const ProductPageCarousel = () => {
           <BsChevronCompactLeft
             size={50}
             onClick={prevSlide}
-            className="text-white"
+            className="text-black"
           />
         </div>
         <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2  text-black cursor-pointer md:top-[30%]">
           <BsChevronCompactRight
             size={50}
             onClick={nextSlide}
-            className="text-white"
+            className="text-black"
           />
         </div>
       </div>

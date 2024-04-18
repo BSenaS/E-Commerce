@@ -5,23 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { currentProductAction } from "../store/actions/productAction";
 
 export const ProductCard = ({ data, index }) => {
-  // const { getQueryFromUrl } = useQuery();
-  const activeProduct = useSelector((store) => store.product.currentProduct);
-  // useEffect(() => {
-  //   getQueryFromUrl();
-  // }, [window.location.searc]);
-
-  const dispatch = useDispatch();
-  const currentProductHandler = (data) => {
-    dispatch(currentProductAction(data));
-    console.log("Seçili ÜRÜN:", activeProduct);
-  };
-
   return (
     <Link
       className="flex flex-col basis-60"
-      to={`/${activeProduct.category_id}/${activeProduct.id}/${activeProduct.name}`}
-      onClick={() => currentProductHandler(data)}
+      to={`/${data.category_id}/${data.id}/${data.name}`}
     >
       <img src={data.images?.[0]?.url} alt={index} className="object-contain" />
       <div className="flex flex-col gap-4 items-center">

@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 import { fetchProducts } from "../store/actions/productAction";
 import useQuery from "../hooks/useQuery";
 
-export const CategoryCard = ({ data, genderTitle, itemCategory, id }) => {
+export const CategoryCard = ({ data, genderTitle }) => {
   const { getQueryData } = useQuery();
   //getQueryData fonksiyonunu calıstıracak handler.
-  const clickHandler = (id, gender) => {
+  const clickHandler = (category, gender) => {
     // console.log("id ve gender:", id, gender);
-    getQueryData(id, gender);
+    getQueryData(category, gender);
   };
 
   return (
-    <div className="md:mx-auto md:w-full ">
-      <Link
-        className="flex flex-wrap"
-        onClick={() => clickHandler(data.id, data.gender)}
-      >
+    <div
+      className="md:mx-auto md:w-full "
+      onClick={() => clickHandler(data.id, data.gender)}
+    >
+      <Link className="flex flex-wrap">
         <div
           style={{
             backgroundImage: `url(${data.img})`,
