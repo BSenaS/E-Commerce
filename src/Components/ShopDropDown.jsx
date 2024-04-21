@@ -54,9 +54,9 @@ export const ShopDropDown = () => {
         <div
           className={`${
             menuIsOpen ? "visible" : "invisible"
-          } absolute z-50 flex flex-row bg-gray-100 py-1 px-2 text-gray-800 shadow-xl justify-between gap-x-4 w-[300px] `}
+          } absolute z-50 flex flex-row bg-gray-100 py-1 px-2 text-gray-800 shadow-xl justify-between gap-x-4 w-[320px] -right-36 sm:w-[370px] rounded-md`}
         >
-          <div className="flex w-1/2 pt-2 text-center text-lg ">
+          <div className="flex w-1/2 pt-2 text-center text-lg">
             <Link to={"/shop"} className="w-full ">
               <p className="w-full text-pBlue hover:text-cyan-700">
                 All Products
@@ -67,7 +67,7 @@ export const ShopDropDown = () => {
             <h3 className="text-pBlue pt-2 text-lg">Kadın</h3>
             {womenCategories.map((item, index) => (
               <div
-                className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2 sm:text-base"
                 onClick={() => clickHandler(item.id, item.gender)}
                 key={index}
               >
@@ -79,7 +79,7 @@ export const ShopDropDown = () => {
             <h3 className="text-pBlue pt-2 text-lg">Erkek</h3>
             {menCategories.map((item, index) => (
               <div
-                className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2 sm:text-base"
                 onClick={() => clickHandler(item.id, item.gender)}
                 key={index}
               >

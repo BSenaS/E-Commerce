@@ -104,20 +104,23 @@ const ProductListPage = () => {
             <HiViewGrid size={16} />
             <CiBoxList className="text-primary-gray" />
           </div>
-          <div className="flex flex-row max-w-[1440px] gap-4">
+          <div className="flex flex-row max-w-[1440px] gap-4 md:flex-wrap md:w-full md:px-1 md:justify-around">
             <select
-              className="flex py-3 max-w-[170px] bg-[#F9F9F9] border-[#DDDDDD] border rounded"
+              className="flex py-3 max-w-[170px] bg-[#F9F9F9] border-[#DDDDDD] border rounded md:w-20"
               value={filterSort}
               onChange={handleSortChange}
             >
-              <option value="price:asc">Price Ascending</option>
-              <option value="price:desc">Price Descending</option>
-              <option value="rating:asc">Rating Ascending</option>
-              <option value="rating:desc">Rating Descending</option>
+              <option value={""} disabled selected>
+                Sort
+              </option>
+              <option value="price:asc">Price:Asc</option>
+              <option value="price:desc">Price:Desc</option>
+              <option value="rating:asc">Rating:Asc</option>
+              <option value="rating:desc">Rating:Desc</option>
             </select>
             <input
               type="text"
-              className="max-w-[170px] bg-[#F9F9F9] border-[#DDDDDD] border rounded"
+              className="max-w-[170px] bg-[#F9F9F9] border-[#DDDDDD] border rounded md:w-28"
               value={filterText}
               onChange={handleFilterChange}
               placeholder="Search"

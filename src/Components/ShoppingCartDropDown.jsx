@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { updateCartItemCount } from "../store/actions/shoppingCartAction";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { useEffect } from "react";
 
 export const ShoppingCartDropDown = () => {
   const dispatch = useDispatch();
@@ -13,14 +15,18 @@ export const ShoppingCartDropDown = () => {
   //   dispatch(updateCartItemCount(item.id, existingItem.count + 1));
   // }
 
+  useEffect(() => {
+    console.log("Carttaki itemler -> ", cartItems);
+  }, [cartItems]);
+
   return (
-    <div className="relative mx-auto flex items-center justify-center ">
+    <div className="relative mx-auto flex items-center justify-center z-50">
       <div className="group  cursor-pointer ">
         <div className="flex items-center justify-between  bg-white ">
           <a className="menu-hover flex">
-            <MdOutlineShoppingCart className="size-5 cursor-pointer" />
+            <MdOutlineShoppingCart className="size-6 cursor-pointer" />
             {cartLenght > 0 && (
-              <span className="ml-1 text-red-700 font-bold">{cartLenght}</span>
+              <span className="ml-1 font-bold">{cartLenght}</span>
             )}
           </a>
           <span>
@@ -40,7 +46,16 @@ export const ShoppingCartDropDown = () => {
             </svg>
           </span>
         </div>
-        <div className="invisible absolute flex w-[350px] max-h-[350px] flex-col bg-gray-100 py-1 px-2 text-gray-800 shadow-xl group-hover:visible right-0 overflow-auto">
+        <div className="invisible absolute flex w-[350px] max-h-[350px] flex-col bg-gray-100 py-1 px-2 text-gray-800 shadow-xl group-hover:visible right-0 overflow-auto md:-right-20 pt-4">
+          <div className="flex flex-row font-bold justify-between items-center">
+            <div>
+              <span>My Cart </span>
+              {`(${cartItems.length} Product)`}
+            </div>
+            <div>
+              <FaRegTrashAlt size={18} className="text-pBlue" />
+            </div>
+          </div>
           {cartItems.map((item, index) => (
             <div
               className="my-2 block border-b border-gray-300 py-1  hover:text-black md:mx-2 "
@@ -59,28 +74,33 @@ export const ShoppingCartDropDown = () => {
                       item.product.price * item.count
                     }`}</span>
                   </div>
-                  <div className="flex gap-2 font-semibold">
-                    <button
-                      className="bg-pBlue px-2 rounded-md text-white"
-                      onClick={() =>
-                        dispatch(
-                          updateCartItemCount(item.product.id, item.count - 1)
-                        )
-                      }
-                    >
-                      -
-                    </button>
-                    <span>{item.count}</span>
-                    <button
-                      className="bg-pBlue px-2 rounded-md text-white"
-                      onClick={() =>
-                        dispatch(
-                          updateCartItemCount(item.product.id, item.count + 1)
-                        )
-                      }
-                    >
-                      +
-                    </button>
+                  <div className="flex flex-row font-semibold items-center justify-between">
+                    <div className="flex flex-row gap-2 font-semibold">
+                      <button
+                        className="bg-pBlue px-2 rounded-md text-white"
+                        onClick={() =>
+                          dispatch(
+                            updateCartItemCount(item.product.id, item.count - 1)
+                          )
+                        }
+                      >
+                        -
+                      </button>
+                      <span>{item.count}</span>
+                      <button
+                        className="bg-pBlue px-2 rounded-md text-white"
+                        onClick={() =>
+                          dispatch(
+                            updateCartItemCount(item.product.id, item.count + 1)
+                          )
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div>
+                      <FaRegTrashAlt size={18} className="text-pBlue" />
+                    </div>
                   </div>
                 </div>
               </div>
