@@ -12,13 +12,11 @@ import ContactPage from "./Pages/ContactPage";
 import SignUpPage from "./Pages/SignUpPage";
 import { LoginPage } from "./Pages/LoginPage";
 import { useEffect } from "react";
-import { AxiosInstance } from "./axios/axiosInstance";
 
 import { useDispatch } from "react-redux";
 import { autoLoginAction } from "./store/actions/userAction";
 import { fetchCategories } from "./store/actions/globalActions";
 import { fetchProducts } from "./store/actions/productAction";
-import { ProductDetails } from "./Layout/productPage/ProductDetails";
 
 function App() {
   const dispatch = useDispatch();

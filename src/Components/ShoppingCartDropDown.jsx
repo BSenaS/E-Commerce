@@ -9,11 +9,12 @@ export const ShoppingCartDropDown = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.shoppingCart.cart);
   const cartLenght = cartItems.length;
-  //Genderdan bize -> k ya da e dönüyor.
 
-  // const updateItemCountHandler = (item) => {
-  //   dispatch(updateCartItemCount(item.id, existingItem.count + 1));
-  // }
+  //ShoppingCart'a eklenen toplam ürün sayısı.
+  const totalItemCount = cartItems.reduce(
+    (total, item) => total + item.count,
+    0
+  );
 
   useEffect(() => {
     console.log("Carttaki itemler -> ", cartItems);
@@ -50,7 +51,7 @@ export const ShoppingCartDropDown = () => {
           <div className="flex flex-row font-bold justify-between items-center">
             <div>
               <span>My Cart </span>
-              {`(${cartItems.length} Product)`}
+              {`(${totalItemCount} Product)`}
             </div>
             <div>
               <FaRegTrashAlt size={18} className="text-pBlue" />
