@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { updateCartItemCount } from "../store/actions/shoppingCartAction";
+import {
+  clearCart,
+  removeFromCart,
+  updateCartItemCount,
+} from "../store/actions/shoppingCartAction";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useEffect } from "react";
 
@@ -15,6 +19,17 @@ export const ShoppingCartDropDown = () => {
     (total, item) => total + item.count,
     0
   );
+
+  const decrementProductCount = (item) => {
+    if (item.count <= 1) {
+      dispatch(removeFromCart(item.product.id));
+    }
+    dispatch(updateCartItemCount(item.product.id, item.count - 1));
+  };
+
+  const incerementProductCount = (item) => {
+    dispatch(updateCartItemCount(item.product.id, item.count + 1));
+  };
 
   useEffect(() => {
     console.log("Carttaki itemler -> ", cartItems);
@@ -54,7 +69,11 @@ export const ShoppingCartDropDown = () => {
               {`(${totalItemCount} Product)`}
             </div>
             <div>
-              <FaRegTrashAlt size={18} className="text-pBlue" />
+              <FaRegTrashAlt
+                size={18}
+                className="text-pBlue"
+                onClick={() => dispatch(clearCart())}
+              />
             </div>
           </div>
           {cartItems.map((item, index) => (
@@ -62,14 +81,14 @@ export const ShoppingCartDropDown = () => {
               className="my-2 block border-b border-gray-300 py-1  hover:text-black md:mx-2 "
               key={index}
             >
-              <div className="flex flex-row justify-around">
+              <div className="flex flex-row">
                 <img
                   src={item.product.images[0].url}
                   alt={item.product.id}
-                  className="w-[100px] h-[120px]"
+                  className="w-[100px] h-[140px] ml-2"
                 />
-                <div className="flex flex-col gap-2">
-                  <span className="font-semibold">{item.product.name}</span>
+                <div className="flex flex-col justify-around ml-2">
+                  <div className="font-semibold">{item.product.name}</div>
                   <div>
                     <span className="font-semibold text-green-600 text-sm">{`$${
                       item.product.price * item.count
@@ -79,28 +98,26 @@ export const ShoppingCartDropDown = () => {
                     <div className="flex flex-row gap-2 font-semibold">
                       <button
                         className="bg-pBlue px-2 rounded-md text-white"
-                        onClick={() =>
-                          dispatch(
-                            updateCartItemCount(item.product.id, item.count - 1)
-                          )
-                        }
+                        onClick={() => decrementProductCount(item)}
                       >
                         -
                       </button>
                       <span>{item.count}</span>
                       <button
                         className="bg-pBlue px-2 rounded-md text-white"
-                        onClick={() =>
-                          dispatch(
-                            updateCartItemCount(item.product.id, item.count + 1)
-                          )
-                        }
+                        onClick={() => incerementProductCount(item)}
                       >
                         +
                       </button>
                     </div>
                     <div>
-                      <FaRegTrashAlt size={18} className="text-pBlue" />
+                      <FaRegTrashAlt
+                        size={18}
+                        className="text-pBlue"
+                        onClick={() =>
+                          dispatch(removeFromCart(item.product.id))
+                        }
+                      />
                     </div>
                   </div>
                 </div>
