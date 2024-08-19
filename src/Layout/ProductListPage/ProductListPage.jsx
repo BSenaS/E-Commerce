@@ -55,6 +55,7 @@ const ProductListPage = () => {
 
   const filterProduct = () => {
     getQueryData();
+    console.log("getQueryData Çalıştı.");
   };
 
   //2. URL'de search parametreleri değiştiğin de çalışır.(Filter butonu url'i değiştirir.)
@@ -64,10 +65,12 @@ const ProductListPage = () => {
 
   useEffect(() => {
     getQueryFromUrl();
+    console.log("getQueryFromURL Çalıştı.");
   }, [window.location.search]);
 
   useEffect(() => {
     getQueryData();
+    console.log("getQueryData Çalıştı , pagination OFFSET");
   }, [paginationOffSet]);
 
   if (productListData.length < 1) {
