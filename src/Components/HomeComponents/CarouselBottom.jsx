@@ -64,7 +64,7 @@ const CarouselBottom = () => {
         <div className="absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2  text-white cursor-pointer">
           <BsChevronCompactRight size={50} onClick={nextSlide} />
         </div>
-        <div className="flex gap-1 absolute top-[95%] translate-y-[-150%] mx-auto md:hidden">
+        <div className="flex gap-1 absolute top-[95%] translate-y-[-150%] mx-auto ">
           {imgArr.map((img, index) => {
             return (
               <div

@@ -13,7 +13,7 @@ export const ShopDropDown = () => {
     console.log("Menu true false?", menuIsOpen);
   };
 
-  const clickHandler = (category, gender) => {
+  const categoryClickHandler = (category, gender) => {
     getQueryData(category, gender);
     setMenuIsOpen(false);
   };
@@ -27,12 +27,12 @@ export const ShopDropDown = () => {
   );
 
   return (
-    <div className="mx-auto flex items-center justify-center">
+    <div className="mx-auto flex items-center justify-center border border-[#5c636a] py-1 px-2 rounded-md hover:text-white hover:bg-[#5c636a] transition-all ">
       <div
-        className="group relative cursor-pointer hover:text-black"
+        className="group relative cursor-pointer"
         onClick={() => toggleMenu(!menuIsOpen)}
       >
-        <div className="flex items-center justify-between  bg-white ">
+        <div className="flex items-center justify-between">
           <a className="menu-hover font-bold">Shop</a>
           <span>
             <svg
@@ -68,7 +68,7 @@ export const ShopDropDown = () => {
             {womenCategories.map((item, index) => (
               <div
                 className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2 sm:text-base"
-                onClick={() => clickHandler(item.id, item.gender)}
+                onClick={() => categoryClickHandler(item.id, item.gender)}
                 key={index}
               >
                 {item.title}
@@ -80,7 +80,7 @@ export const ShopDropDown = () => {
             {menCategories.map((item, index) => (
               <div
                 className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2 sm:text-base"
-                onClick={() => clickHandler(item.id, item.gender)}
+                onClick={() => categoryClickHandler(item.id, item.gender)}
                 key={index}
               >
                 {item.title}
