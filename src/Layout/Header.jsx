@@ -8,7 +8,6 @@ import {
   FaSearch,
   FaRegHeart,
 } from "react-icons/fa";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { CiMail } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,9 +37,9 @@ export const Header = () => {
   }, [location.pathname]);
 
   return (
-    <div className="md:w-full">
+    <div className="w-full">
       {/* Dark NavBar */}
-      <div className="max-w-full bg-[#252B42] md:hidden">
+      <div className="w-full bg-[#252B42] md:hidden py-2">
         <div className="flex flex-row flex-wrap md:flex-col max-w-[1440px] mx-auto justify-between items-center  min-h-[58px] px-[1.5em]">
           <div className="flex items-center gap-[1.5rem] ">
             <div className="inline-flex  items-center gap-[0.25rem]">
@@ -71,21 +70,27 @@ export const Header = () => {
         </div>
       </div>
       {/*Navbar Light */}
-      <div className="flex justify-between items-center px-[1.5em] max-w-[1440px] mx-auto md:flex-col flex-wrap">
-        <nav className="inline-flex items-center gap-[2rem] w-full justify-between md:flex-wrap">
+      <div className="flex items-center px-[1.5em] max-w-[1440px] mx-auto md:flex-col flex-wrap py-2">
+        <nav className="inline-flex items-center gap-[2rem] w-full md:flex-wrap">
           <div className="flex py-4  md:inline-flex">
             <Link to={"/"}>
               <h3 className="text-2xl font-bold">Bandage</h3>
             </Link>
           </div>
 
-          <div className="flex gap-[1rem] font-bold text-[#737373] text-sm ml-20 md:ml-0 md:flex-col md:w-full md:items-center md:text-xl md:order-last md:mb-12 items-center md:hidden">
-            <Link to={"/"}>Home</Link>
-            <span>
+          <div className="flex gap-[1rem] font-bold text-[#737373] ml-20 md:ml-0 md:flex-col md:w-full md:items-center md:text-xl md:order-last md:mb-12 items-center md:hidden ">
+            <Link to={"/"} className="hover:text-black">
+              Home
+            </Link>
+            <span className="">
               <ShopDropDown />
             </span>
-            <Link to={"/about"}>About</Link>
-            <Link to={"/contact"}>Contact</Link>
+            <Link to={"/about"} className="hover:text-black">
+              About
+            </Link>
+            <Link to={"/contact"} className="hover:text-black">
+              Contact
+            </Link>
             {/* <Link to={"/product"}>Pages</Link> */}
           </div>
 
@@ -126,8 +131,8 @@ export const Header = () => {
               </div>
             </div>
           )}
-          <div className="inline-flex justify-end items-center text-[#23A6F0] gap-6">
-            <div className="flex gap-2 items-center md:hidden">
+          <div className="flex text-[#23A6F0] gap-6 ml-auto">
+            <div className="flex gap-2 items-center md:hidden font-bold">
               {userLoggedIn.isLoggedIn ? (
                 <div className="flex flex-row items-center gap-2">
                   <span>

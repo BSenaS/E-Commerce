@@ -43,7 +43,7 @@ export const CarouselTop = () => {
   }, [currentIndex]);
 
   return (
-    <div className="flex w-full mt-4">
+    <div className="flex w-full">
       <div className="max-w-[1440px] max-h-[716px] w-full h-screen mx-auto relative group ">
         {/*Geri Dön! -> Sliderı refactor et... */}
         <div
